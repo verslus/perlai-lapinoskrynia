@@ -1,4 +1,0 @@
-perlai.lapinoskrynia.lt {
-  encode gzip zstd
-  reverse_proxy app:3000
-}
