@@ -10,7 +10,10 @@ async function createPgDump(filePath: string) {
   const dbUrl = process.env.DATABASE_URL;
   if (!dbUrl) throw new Error("DATABASE_URL nerastas");
 
-  await execFileAsync("pg_dump", [dbUrl, "-F", "c", "-f", filePath]);
+  const url = new URL(dbUrl);
+  url.searchParams.delete("schema");
+
+  await execFileAsync("pg_dump", [url.toString(), "-F", "c", "-f", filePath]);
 }
 
 async function uploadToR2(filePath: string) {
