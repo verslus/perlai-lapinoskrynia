@@ -1,0 +1,975 @@
+{
+  "slug": "ysq-r-v43",
+  "version": 1,
+  "language": "en",
+  "title": "YSQ-R (English)",
+  "description": "Young Schema Questionnaire Revised v4.3 (EN)",
+  "questions": [
+    {
+      "order": 1,
+      "text": "I haven't gotten enough love and attention.",
+      "dimension": "emotional-deprivation",
+      "isReverse": false
+    },
+    {
+      "order": 2,
+      "text": "For the most part, I haven't had someone to depend on for advice and emotional support.",
+      "dimension": "emotional-deprivation",
+      "isReverse": false
+    },
+    {
+      "order": 3,
+      "text": "For much of my life, I haven't had someone who wanted to get close to me and spend a lot of time with me.",
+      "dimension": "emotional-deprivation",
+      "isReverse": false
+    },
+    {
+      "order": 4,
+      "text": "For much of my life, I haven't felt that I am special to someone.",
+      "dimension": "emotional-deprivation",
+      "isReverse": false
+    },
+    {
+      "order": 5,
+      "text": "I have rarely had a strong person to give me sound advice or direction when I'm not sure what to do.",
+      "dimension": "emotional-deprivation",
+      "isReverse": false
+    },
+    {
+      "order": 6,
+      "text": "I worry that people I feel close to will leave me or abandon me.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 7,
+      "text": "I don't feel that important relationships will last; I expect them to end.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 8,
+      "text": "I feel addicted to partners who can't be there for me in a committed way.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 9,
+      "text": "I become upset when someone leaves me alone, even for a short period of time.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 10,
+      "text": "I can't let myself get very close to other people, because I can't be sure they'll always be there.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 11,
+      "text": "The people close to me have been very unpredictable: one moment they're available and nice to me; the next, they're angry, upset, self-absorbed, fighting, etc.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 12,
+      "text": "I need other people so much that I worry about losing them.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 13,
+      "text": "I can't be myself or express what I really feel, or people will leave me.",
+      "dimension": "abandonment",
+      "isReverse": false
+    },
+    {
+      "order": 14,
+      "text": "I feel that I cannot let my guard down in the presence of other people, or else they will intentionally hurt me.",
+      "dimension": "mistrust",
+      "isReverse": false
+    },
+    {
+      "order": 15,
+      "text": "It is only a matter of time before someone betrays me.",
+      "dimension": "mistrust",
+      "isReverse": false
+    },
+    {
+      "order": 16,
+      "text": "I have a great deal of difficulty trusting people.",
+      "dimension": "mistrust",
+      "isReverse": false
+    },
+    {
+      "order": 17,
+      "text": "I set up \"tests\" for other people, to see if they are telling me the truth and are well-intentioned.",
+      "dimension": "mistrust",
+      "isReverse": false
+    },
+    {
+      "order": 18,
+      "text": "I subscribe to the belief: \"Control or be controlled.\"",
+      "dimension": "mistrust",
+      "isReverse": false
+    },
+    {
+      "order": 19,
+      "text": "I'm fundamentally different from other people.",
+      "dimension": "social-isolation",
+      "isReverse": false
+    },
+    {
+      "order": 20,
+      "text": "I don't belong; I'm a loner.",
+      "dimension": "social-isolation",
+      "isReverse": false
+    },
+    {
+      "order": 21,
+      "text": "I always feel on the outside of groups.",
+      "dimension": "social-isolation",
+      "isReverse": false
+    },
+    {
+      "order": 22,
+      "text": "No one really understands me.",
+      "dimension": "social-isolation",
+      "isReverse": false
+    },
+    {
+      "order": 23,
+      "text": "I sometimes feel as if I'm an alien.",
+      "dimension": "social-isolation",
+      "isReverse": false
+    },
+    {
+      "order": 24,
+      "text": "No one I desire would want to stay close to me if he/she knew the real me.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 25,
+      "text": "I am inherently flawed and defective.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 26,
+      "text": "I feel that I'm not lovable.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 27,
+      "text": "I am too unacceptable in very basic ways to reveal myself to other people.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 28,
+      "text": "When people like me, I feel I am fooling them.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 29,
+      "text": "I cannot understand how anyone could love me.",
+      "dimension": "defectiveness",
+      "isReverse": false
+    },
+    {
+      "order": 30,
+      "text": "Almost nothing I do at work (or school) is as good as other people can do.",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 31,
+      "text": "Most other people are more capable than I am in areas of work (or school) and achievement.",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 32,
+      "text": "I'm a failure.",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 33,
+      "text": "I'm not as talented as most people are at their work (or at school).",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 34,
+      "text": "I often feel embarrassed around other people, because I don't measure up to them in terms of my accomplishments.",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 35,
+      "text": "I often compare my accomplishments with others and feel that they are much more successful.",
+      "dimension": "failure",
+      "isReverse": false
+    },
+    {
+      "order": 36,
+      "text": "I do not feel capable of getting by on my own in everyday life.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 37,
+      "text": "I believe that other people can take of me better than I can take care of myself.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 38,
+      "text": "I have trouble tackling new tasks outside of work unless I have someone to guide me.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 39,
+      "text": "I screw up everything I try, even outside of work (or school).",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 40,
+      "text": "If I trust my own judgment in everyday situations, I'll make the wrong decision.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 41,
+      "text": "I feel that I need someone I can rely on to give me advice about practical issues.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 42,
+      "text": "I feel more like a child than an adult when it comes to handling everyday responsibilities.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 43,
+      "text": "I find the responsibilities of everyday life overwhelming.",
+      "dimension": "dependence",
+      "isReverse": false
+    },
+    {
+      "order": 44,
+      "text": "I feel that a disaster (natural, criminal, financial, or medical) could strike at any moment.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 45,
+      "text": "I worry about being attacked.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 46,
+      "text": "I take great precautions to avoid getting sick or hurt.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 47,
+      "text": "I worry that I'm developing a serious illness, even though nothing serious has been diagnosed by a physician.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 48,
+      "text": "I worry a lot about the bad things happening in the world: crime, pollution, etc.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 49,
+      "text": "I feel that the world is a dangerous place.",
+      "dimension": "vulnerability-to-harm",
+      "isReverse": false
+    },
+    {
+      "order": 50,
+      "text": "My parent(s) and I tend to be overinvolved in each other's lives and problems.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 51,
+      "text": "It is very difficult for my parent(s) and me to keep intimate details from each other, without feeling betrayed or guilty.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 52,
+      "text": "My parent(s) and I must speak to each other almost every day, or else one of us feels guilty, hurt, disappointed, or alone.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 53,
+      "text": "I often feel that I do not have a separate identity from my parents or partner.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 54,
+      "text": "It is very difficult for me to maintain any distance from the people I am intimate with; I have trouble keeping any separate sense of myself.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 55,
+      "text": "I often feel that I have no privacy when it comes to my parent(s) or partner.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 56,
+      "text": "I feel that my parent(s) are, or would be, very hurt about my living on my own, away from them.",
+      "dimension": "enmeshment",
+      "isReverse": false
+    },
+    {
+      "order": 57,
+      "text": "I believe that if I do what I want, I'm only asking for trouble.",
+      "dimension": "subjugation",
+      "isReverse": false
+    },
+    {
+      "order": 58,
+      "text": "In relationships, I let the other person have the upper hand.",
+      "dimension": "subjugation",
+      "isReverse": false
+    },
+    {
+      "order": 59,
+      "text": "I've always let others make choices for me, so I really don't know what I want for myself.",
+      "dimension": "subjugation",
+      "isReverse": false
+    },
+    {
+      "order": 60,
+      "text": "I worry a lot about pleasing other people, so they won't reject me.",
+      "dimension": "subjugation",
+      "isReverse": false
+    },
+    {
+      "order": 61,
+      "text": "I will go to much greater lengths than most people to avoid confrontations.",
+      "dimension": "subjugation",
+      "isReverse": false
+    },
+    {
+      "order": 62,
+      "text": "I give more to other people than I get back in return.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 63,
+      "text": "I'm the one who usually ends up taking care of the people I'm close to.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 64,
+      "text": "No matter how busy I am, I can always find time for others.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 65,
+      "text": "I've always been the one who listens to everyone else's problems.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 66,
+      "text": "Other people see me as doing too much for others and not enough for myself.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 67,
+      "text": "No matter how much I give; I feel it is never enough.",
+      "dimension": "self-sacrifice",
+      "isReverse": false
+    },
+    {
+      "order": 68,
+      "text": "I worry about losing control of my actions.",
+      "dimension": "fear-of-losing-control",
+      "isReverse": false
+    },
+    {
+      "order": 69,
+      "text": "I worry that I might seriously harm someone physically or emotionally if my anger gets out of control.",
+      "dimension": "fear-of-losing-control",
+      "isReverse": false
+    },
+    {
+      "order": 70,
+      "text": "I feel that I must control my emotions and impulses, or something bad is likely to happen.",
+      "dimension": "fear-of-losing-control",
+      "isReverse": false
+    },
+    {
+      "order": 71,
+      "text": "A lot of anger and resentment build up inside of me that I don't express.",
+      "dimension": "fear-of-losing-control",
+      "isReverse": false
+    },
+    {
+      "order": 72,
+      "text": "I am too self-conscious to show positive feelings to others (e.g., affection, showing I care).",
+      "dimension": "emotional-constriction",
+      "isReverse": false
+    },
+    {
+      "order": 73,
+      "text": "I find it embarrassing to express my feelings to others.",
+      "dimension": "emotional-constriction",
+      "isReverse": false
+    },
+    {
+      "order": 74,
+      "text": "I find it hard to be warm and spontaneous.",
+      "dimension": "emotional-constriction",
+      "isReverse": false
+    },
+    {
+      "order": 75,
+      "text": "I control myself so much that people think I am unemotional.",
+      "dimension": "emotional-constriction",
+      "isReverse": false
+    },
+    {
+      "order": 76,
+      "text": "People see me as uptight emotionally.",
+      "dimension": "emotional-constriction",
+      "isReverse": false
+    },
+    {
+      "order": 77,
+      "text": "I must be the best at most of what I do; I can't accept second best.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 78,
+      "text": "I strive to keep almost everything in perfect order.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 79,
+      "text": "I have so much to accomplish that there is almost no time to really relax.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 80,
+      "text": "I must meet all my responsibilities.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 81,
+      "text": "I often sacrifice pleasure and happiness to meet my own standards.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 82,
+      "text": "I can't let myself off the hook easily or make excuses for my mistakes.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 83,
+      "text": "I always must be Number One, in terms of my performance.",
+      "dimension": "unrelenting-standards",
+      "isReverse": false
+    },
+    {
+      "order": 84,
+      "text": "I have a lot of trouble accepting \"no\" for an answer when I want something from other people.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 85,
+      "text": "I hate to be constrained or kept from doing what I want.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 86,
+      "text": "I feel that I shouldn't have to follow the normal rules and conventions other people do.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 87,
+      "text": "I often find that I am so involved in my own priorities that I don't have time to give to friends or family.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 88,
+      "text": "People often tell me I am very controlling about the ways things are done.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 89,
+      "text": "I can't tolerate other people telling me what to do.",
+      "dimension": "entitlement",
+      "isReverse": false
+    },
+    {
+      "order": 90,
+      "text": "I can't seem to discipline myself to complete routine or boring tasks.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 91,
+      "text": "Often I allow myself to carry through on impulses and express emotions that get me into trouble or hurt other people.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 92,
+      "text": "I get bored very easily.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 93,
+      "text": "When tasks become difficult, I usually cannot persevere and complete them.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 94,
+      "text": "I can't force myself to do things I don't enjoy, even when I know it's for my own good.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 95,
+      "text": "I have rarely been able to stick to my resolutions.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 96,
+      "text": "I often do things impulsively that I later regret.",
+      "dimension": "insufficient-self-control",
+      "isReverse": false
+    },
+    {
+      "order": 97,
+      "text": "It is important to me to be liked by almost everyone I know.",
+      "dimension": "approval-seeking",
+      "isReverse": false
+    },
+    {
+      "order": 98,
+      "text": "I change myself depending on the people I’m with, so they’ll like me more.",
+      "dimension": "approval-seeking",
+      "isReverse": false
+    },
+    {
+      "order": 99,
+      "text": "My self-esteem is based mostly on how other people view me.",
+      "dimension": "approval-seeking",
+      "isReverse": false
+    },
+    {
+      "order": 100,
+      "text": "Even if I don’t like someone, I still want him or her to like me.",
+      "dimension": "approval-seeking",
+      "isReverse": false
+    },
+    {
+      "order": 101,
+      "text": "Unless I get a lot of attention from others, I feel less important.",
+      "dimension": "approval-seeking",
+      "isReverse": false
+    },
+    {
+      "order": 102,
+      "text": "You can’t be too careful; something will almost always go wrong.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 103,
+      "text": "I worry that a wrong decision could lead to disaster.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 104,
+      "text": "I often obsess over minor decisions, because the consequences of making a mistake seem so serious.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 105,
+      "text": "I feel better assuming things will not work out for me, so that I don’t feel disappointed if things go wrong.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 106,
+      "text": "I tend to be pessimistic.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 107,
+      "text": "If people get too enthusiastic about something, I become uncomfortable and feel like warning them of what could go wrong.",
+      "dimension": "negativity",
+      "isReverse": false
+    },
+    {
+      "order": 108,
+      "text": "If I make a mistake, I deserve to be punished.",
+      "dimension": "punitiveness-self",
+      "isReverse": false
+    },
+    {
+      "order": 109,
+      "text": "There is no excuse if I make mistake.",
+      "dimension": "punitiveness-self",
+      "isReverse": false
+    },
+    {
+      "order": 110,
+      "text": "If I don’t do the job, I should suffer the consequences.",
+      "dimension": "punitiveness-self",
+      "isReverse": false
+    },
+    {
+      "order": 111,
+      "text": "It doesn’t matter why I make a mistake; I should pay the price when I do something wrong.",
+      "dimension": "punitiveness-self",
+      "isReverse": false
+    },
+    {
+      "order": 112,
+      "text": "I’m a bad person who deserves to be punished.",
+      "dimension": "punitiveness-self",
+      "isReverse": false
+    },
+    {
+      "order": 113,
+      "text": "People who don’t “pull their own weight” should get punished in some way.",
+      "dimension": "punitiveness-other",
+      "isReverse": false
+    },
+    {
+      "order": 114,
+      "text": "Most of the time, I don’t accept the excuses other people make. They’re just not willing to accept responsibility and pay the consequences.",
+      "dimension": "punitiveness-other",
+      "isReverse": false
+    },
+    {
+      "order": 115,
+      "text": "I hold grudges, even after someone has apologized.",
+      "dimension": "punitiveness-other",
+      "isReverse": false
+    },
+    {
+      "order": 116,
+      "text": "I get angry when people make excuses for themselves or blame other people for their problems.",
+      "dimension": "punitiveness-other",
+      "isReverse": false
+    }
+  ],
+  "scoringConfigJson": {
+    "type": "ysq_r_v43",
+    "scaleMin": 1,
+    "scaleMax": 6,
+    "elevatedMinValue": 5,
+    "highMinValue": 4,
+    "elevatedCutoff": 0.5,
+    "statusLabels": {
+      "elevated": "Elevated",
+      "notElevated": "Not Elevated"
+    },
+    "schemas": [
+      {
+        "key": "emotional-deprivation",
+        "label": "Emotional Deprivation",
+        "description": "The expectation that others will not adequately meet one’s needs for nurturance and support",
+        "itemOrders": [
+          1,
+          2,
+          3,
+          4,
+          5
+        ]
+      },
+      {
+        "key": "abandonment",
+        "label": "Abandonment",
+        "description": "The expectation that one will eventually be abandoned by significant others",
+        "itemOrders": [
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13
+        ]
+      },
+      {
+        "key": "mistrust",
+        "label": "Mistrust",
+        "description": "The expectation that one will be abused, humiliated, or manipulated by others",
+        "itemOrders": [
+          14,
+          15,
+          16,
+          17,
+          18
+        ]
+      },
+      {
+        "key": "social-isolation",
+        "label": "Social Isolation",
+        "description": "The belief that one is different from others and does not belong within a community",
+        "itemOrders": [
+          19,
+          20,
+          21,
+          22,
+          23
+        ]
+      },
+      {
+        "key": "defectiveness",
+        "label": "Defectiveness",
+        "description": "The belief that one is fundamentally flawed, unworthy, or unlovable",
+        "itemOrders": [
+          24,
+          25,
+          26,
+          27,
+          28,
+          29
+        ]
+      },
+      {
+        "key": "failure",
+        "label": "Failure",
+        "description": "The expectation that one will inevitably fail, or is fundamentally inadequate compared to others",
+        "itemOrders": [
+          30,
+          31,
+          32,
+          33,
+          34,
+          35
+        ]
+      },
+      {
+        "key": "dependence",
+        "label": "Dependence",
+        "description": "The belief that that one is completely hopeless, dependent on others, and is incapable of making everyday decisions on their own",
+        "itemOrders": [
+          36,
+          37,
+          38,
+          39,
+          40,
+          41,
+          42,
+          43
+        ]
+      },
+      {
+        "key": "vulnerability-to-harm",
+        "label": "Vulnerability to Harm",
+        "description": "The belief that the world is dangerous, and that disaster can strike at any moment",
+        "itemOrders": [
+          44,
+          45,
+          46,
+          47,
+          48,
+          49
+        ]
+      },
+      {
+        "key": "enmeshment",
+        "label": "Enmeshment",
+        "description": "Excessive emotional involvement with others due to the belief that one cannot cope without the other",
+        "itemOrders": [
+          50,
+          51,
+          52,
+          53,
+          54,
+          55,
+          56
+        ]
+      },
+      {
+        "key": "subjugation",
+        "label": "Subjugation",
+        "description": "Excessive submission of ones needs to avoid punishment, abandonment, and rejection.",
+        "itemOrders": [
+          57,
+          58,
+          59,
+          60,
+          61
+        ]
+      },
+      {
+        "key": "self-sacrifice",
+        "label": "Self-Sacrifice",
+        "description": "Excessive sense of duty to meet the needs of others to the sacrifice of one's own needs",
+        "itemOrders": [
+          62,
+          63,
+          64,
+          65,
+          66,
+          67
+        ]
+      },
+      {
+        "key": "fear-of-losing-control",
+        "label": "Fear of Losing Control",
+        "description": "A belief that dire consequences will result from failing to maintain control of emotions",
+        "itemOrders": [
+          68,
+          69,
+          70,
+          71
+        ]
+      },
+      {
+        "key": "emotional-constriction",
+        "label": "Emotional Constriction",
+        "description": "Excessive overcontrol of emotions due to feelings of shame and embarrassment of all emotions",
+        "itemOrders": [
+          72,
+          73,
+          74,
+          75,
+          76
+        ]
+      },
+      {
+        "key": "unrelenting-standards",
+        "label": "Unrelenting Standards",
+        "description": "The belief that one will be harshly criticised if they do not meet very highstandards (often internalised standards) of performance or behaviour often at the expense of gratification",
+        "itemOrders": [
+          77,
+          78,
+          79,
+          80,
+          81,
+          82,
+          83
+        ]
+      },
+      {
+        "key": "entitlement",
+        "label": "Entitlement",
+        "description": "The belief that one is superior to others and is entitled to special privileges and rights",
+        "itemOrders": [
+          84,
+          85,
+          86,
+          87,
+          88,
+          89
+        ]
+      },
+      {
+        "key": "insufficient-self-control",
+        "label": "Insufficient Self-Control",
+        "description": "Difficulties exercising self-control to achieve goals, low frustration tolerance, and inability to control urges and impulses",
+        "itemOrders": [
+          90,
+          91,
+          92,
+          93,
+          94,
+          95,
+          96
+        ]
+      },
+      {
+        "key": "approval-seeking",
+        "label": "Approval-Seeking",
+        "description": "Excessive focus on gaining the attention, recognition, and approval of others often at the expense one’s own sense of self",
+        "itemOrders": [
+          97,
+          98,
+          99,
+          100,
+          101
+        ]
+      },
+      {
+        "key": "negativity",
+        "label": "Negativity",
+        "description": "An increased focus on the negative aspects of life, whilst minimising the positive",
+        "itemOrders": [
+          102,
+          103,
+          104,
+          105,
+          106,
+          107
+        ]
+      },
+      {
+        "key": "punitiveness-self",
+        "label": "Punitiveness (Self)",
+        "description": "The belief that oneself should be punished for any mistakes or imperfections; hypercriticalness towards one's self",
+        "itemOrders": [
+          108,
+          109,
+          110,
+          111,
+          112
+        ]
+      },
+      {
+        "key": "punitiveness-other",
+        "label": "Punitiveness (Other)",
+        "description": "The belief that others should be punished for any mistakes or imperfections; hypercriticalness towards others",
+        "itemOrders": [
+          113,
+          114,
+          115,
+          116
+        ]
+      }
+    ]
+  }
+}

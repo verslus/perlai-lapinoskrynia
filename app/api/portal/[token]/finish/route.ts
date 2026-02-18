@@ -9,7 +9,7 @@ import { scoreAttempt } from "@/lib/scoring";
 
 const schema = z.object({
   attemptId: z.string(),
-  answers: z.record(z.string(), z.number().int().min(1).max(5).nullable())
+  answers: z.record(z.string(), z.number().int().min(1).max(6).nullable())
 });
 
 export async function POST(req: Request, { params }: { params: Promise<{ token: string }> }) {
@@ -28,10 +28,17 @@ export async function POST(req: Request, { params }: { params: Promise<{ token: 
   }
 
   try {
-    const score = scoreAttempt(access.testVersion.questions, parsed.data.answers);
+    const score = scoreAttempt(
+      access.testVersion.questions,
+      parsed.data.answers,
+      access.testVersion.scoringConfigJson
+    );
     const consultantSummary = {
       overall: score.overall,
-      topDimensions: score.dimensions.slice(0, 3)
+      topDimensions: score.dimensions
+        .slice()
+        .sort((a, b) => (b.avg ?? 0) - (a.avg ?? 0))
+        .slice(0, 3)
     };
 
     const updated = await prisma.attempt.update({

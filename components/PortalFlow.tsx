@@ -21,7 +21,13 @@ type InitPayload = {
     report: {
       overall: number;
       interpretation: string;
-      dimensions: { dimension: string; avg: number; level: string }[];
+      dimensions: {
+        dimension: string;
+        avg: number;
+        level: string;
+        elevatedPct?: number;
+        highPct?: number;
+      }[];
     } | null;
     feedback?: { clarity: number; usefulness: number; interest: number; comment?: string | null } | null;
   } | null;
@@ -223,7 +229,7 @@ export function PortalFlow({ token }: { token: string }) {
           </div>
           <p>{current.text}</p>
           <div className="row">
-            {[1, 2, 3, 4, 5].map((v) => (
+            {[1, 2, 3, 4, 5, 6].map((v) => (
               <button
                 key={v}
                 className={answers[current.id] === v ? "" : "secondary"}
@@ -263,6 +269,8 @@ export function PortalFlow({ token }: { token: string }) {
                 <strong>{d.dimension}</strong>
                 <span className="tag">{d.avg}</span>
                 <span className="small">{d.level}</span>
+                {typeof d.elevatedPct === "number" ? <span className="small">5/6: {d.elevatedPct}%</span> : null}
+                {typeof d.highPct === "number" ? <span className="small">4/5/6: {d.highPct}%</span> : null}
               </div>
             ))}
           </div>
