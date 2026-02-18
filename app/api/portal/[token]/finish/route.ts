@@ -2,6 +2,7 @@ import { EventType } from "@prisma/client";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 import { logEvent } from "@/lib/audit";
+import { sendCriticalAlert } from "@/lib/alerts";
 import { findAccessByToken } from "@/lib/portal";
 import { prisma } from "@/lib/prisma";
 import { scoreAttempt } from "@/lib/scoring";
@@ -26,29 +27,43 @@ export async function POST(req: Request, { params }: { params: Promise<{ token: 
     return NextResponse.json({ error: "Attempt nerastas" }, { status: 404 });
   }
 
-  const score = scoreAttempt(access.testVersion.questions, parsed.data.answers);
-  const consultantSummary = {
-    overall: score.overall,
-    topDimensions: score.dimensions.slice(0, 3)
-  };
+  try {
+    const score = scoreAttempt(access.testVersion.questions, parsed.data.answers);
+    const consultantSummary = {
+      overall: score.overall,
+      topDimensions: score.dimensions.slice(0, 3)
+    };
 
-  const updated = await prisma.attempt.update({
-    where: { id: attempt.id },
-    data: {
-      answersJson: parsed.data.answers,
-      scoreJson: score,
-      fullReportJson: score,
-      consultantSummaryJson: consultantSummary,
-      status: "FINISHED",
-      finishedAt: new Date()
-    }
-  });
+    const updated = await prisma.attempt.update({
+      where: { id: attempt.id },
+      data: {
+        answersJson: parsed.data.answers,
+        scoreJson: score,
+        fullReportJson: score,
+        consultantSummaryJson: consultantSummary,
+        status: "FINISHED",
+        finishedAt: new Date()
+      }
+    });
 
-  await logEvent({
-    type: EventType.TEST_FINISHED,
-    portalId: access.portalId,
-    attemptId: attempt.id
-  });
+    await logEvent({
+      type: EventType.TEST_FINISHED,
+      portalId: access.portalId,
+      attemptId: attempt.id
+    });
 
-  return NextResponse.json({ score: updated.scoreJson, report: updated.fullReportJson });
+    return NextResponse.json({ score: updated.scoreJson, report: updated.fullReportJson });
+  } catch (error) {
+    await logEvent({
+      type: EventType.SCORING_ERROR,
+      portalId: access.portalId,
+      attemptId: attempt.id,
+      metadataJson: { error: `${error}` }
+    });
+    await sendCriticalAlert({
+      subject: "[perlai-ls] Scoring error",
+      text: `Scoring failed.\nPortalId: ${access.portalId}\nAttemptId: ${attempt.id}\nError: ${String(error)}`
+    });
+    return NextResponse.json({ error: "Scoring klaida" }, { status: 500 });
+  }
 }
