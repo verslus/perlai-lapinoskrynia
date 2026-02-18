@@ -1,6 +1,7 @@
 services:
   db:
     image: postgres:16-alpine
+    container_name: perlai-ls-db
     restart: unless-stopped
     environment:
       POSTGRES_DB: testu
@@ -8,19 +9,33 @@ services:
       POSTGRES_PASSWORD: testu
     volumes:
       - postgres_data:/var/lib/postgresql/data
-    ports:
-      - "5432:5432"
 
   app:
     build: .
+    container_name: perlai-ls-app
     restart: unless-stopped
     depends_on:
       - db
     env_file:
       - .env
+    expose:
+      - "3000"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: perlai-ls-caddy
+    restart: unless-stopped
+    depends_on:
+      - app
     ports:
-      - "3000:3000"
-    command: sh -c "npm run prisma:migrate && npm run seed && node server.js"
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./infra/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
 
 volumes:
   postgres_data:
+  caddy_data:
+  caddy_config:

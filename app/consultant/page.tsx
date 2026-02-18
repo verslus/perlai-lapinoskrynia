@@ -35,7 +35,7 @@ export default async function ConsultantPage() {
       portalId: portal.id,
       internalClientId: portal.internalClientId,
       latestStatus: attempt?.status ?? "NOT_STARTED",
-      updatedAt: attempt?.updatedAt ?? portal.createdAt,
+      updatedAt: (attempt?.updatedAt ?? portal.createdAt).toISOString(),
       accessLinkId: access?.id ?? null,
       activeUrl: access ? `${process.env.NEXT_PUBLIC_APP_URL ?? "http://localhost:3000"}/p/${access.token}` : null,
       answeredMinutes: Math.round((attempt?.answerDurationSec ?? 0) / 60),

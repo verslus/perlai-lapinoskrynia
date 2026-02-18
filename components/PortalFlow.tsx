@@ -18,7 +18,11 @@ type InitPayload = {
     status: string;
     answers: Record<string, number | null>;
     score: { overall: number } | null;
-    report: { interpretation: string; dimensions: { dimension: string; avg: number; level: string }[] } | null;
+    report: {
+      overall: number;
+      interpretation: string;
+      dimensions: { dimension: string; avg: number; level: string }[];
+    } | null;
     feedback?: { clarity: number; usefulness: number; interest: number; comment?: string | null } | null;
   } | null;
   previousAttempt: {
