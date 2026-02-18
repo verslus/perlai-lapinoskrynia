@@ -1,0 +1,26 @@
+services:
+  db:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: testu
+      POSTGRES_USER: testu
+      POSTGRES_PASSWORD: testu
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  app:
+    build: .
+    restart: unless-stopped
+    depends_on:
+      - db
+    env_file:
+      - .env
+    ports:
+      - "3000:3000"
+    command: sh -c "npm run prisma:migrate && npm run seed && node server.js"
+
+volumes:
+  postgres_data:
