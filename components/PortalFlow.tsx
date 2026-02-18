@@ -38,6 +38,54 @@ type InitPayload = {
   } | null;
 };
 
+type FeedbackState = {
+  clarity: number | null;
+  usefulness: number | null;
+  interest: number | null;
+  comment: string;
+};
+
+function getTestLikert(language: string) {
+  const lt = [
+    { value: 1, label: "Visiškai netinka man" },
+    { value: 2, label: "Daugiausia netinka man" },
+    { value: 3, label: "Labiau tinka nei netinka" },
+    { value: 4, label: "Vidutiniškai tinka man" },
+    { value: 5, label: "Daugiausia tinka man" },
+    { value: 6, label: "Puikiai mane apibūdina" }
+  ];
+
+  const en = [
+    { value: 1, label: "Completely untrue of me" },
+    { value: 2, label: "Mostly untrue of me" },
+    { value: 3, label: "Slightly more true than untrue" },
+    { value: 4, label: "Moderately true of me" },
+    { value: 5, label: "Mostly true of me" },
+    { value: 6, label: "Describes me perfectly" }
+  ];
+
+  const ru = [
+    { value: 1, label: "Абсолютно не соответствует мне" },
+    { value: 2, label: "В основном не соответствует мне" },
+    { value: 3, label: "Скорее соответствует, чем нет" },
+    { value: 4, label: "В общем, соответствует" },
+    { value: 5, label: "По большей части соответствует" },
+    { value: 6, label: "Полностью соответствует мне" }
+  ];
+
+  if (language === "ru") return ru;
+  if (language === "en") return en;
+  return lt;
+}
+
+const feedbackLikert = [
+  { value: 1, label: "Visiškai ne" },
+  { value: 2, label: "Labiau ne" },
+  { value: 3, label: "Per vidurį" },
+  { value: 4, label: "Labiau taip" },
+  { value: 5, label: "Labai taip" }
+];
+
 export function PortalFlow({ token }: { token: string }) {
   const [data, setData] = useState<InitPayload | null>(null);
   const [loading, setLoading] = useState(true);
@@ -47,6 +95,12 @@ export function PortalFlow({ token }: { token: string }) {
   const [index, setIndex] = useState(0);
   const [phase, setPhase] = useState<"consent" | "test" | "report">("consent");
   const [reportSeenAt, setReportSeenAt] = useState<number | null>(null);
+  const [feedback, setFeedback] = useState<FeedbackState>({
+    clarity: null,
+    usefulness: null,
+    interest: null,
+    comment: ""
+  });
 
   useEffect(() => {
     async function init() {
@@ -59,6 +113,14 @@ export function PortalFlow({ token }: { token: string }) {
       }
       setData(payload);
       setAnswers(payload.latestAttempt?.answers ?? {});
+      if (payload.latestAttempt?.feedback) {
+        setFeedback({
+          clarity: payload.latestAttempt.feedback.clarity,
+          usefulness: payload.latestAttempt.feedback.usefulness,
+          interest: payload.latestAttempt.feedback.interest,
+          comment: payload.latestAttempt.feedback.comment ?? ""
+        });
+      }
       if (payload.latestAttempt?.status === "FINISHED" || payload.latestAttempt?.status === "REPORT_VIEWED") {
         setAttemptId(payload.latestAttempt.id);
         setPhase("report");
@@ -71,6 +133,7 @@ export function PortalFlow({ token }: { token: string }) {
   const questions = data?.test.questions ?? [];
   const current = questions[index];
   const progress = questions.length ? Math.round(((index + 1) / questions.length) * 100) : 0;
+  const testLikert = getTestLikert(data?.test.language ?? "lt");
 
   const deltaLabel = useMemo(() => {
     const curr = data?.latestAttempt?.score?.overall;
@@ -164,19 +227,23 @@ export function PortalFlow({ token }: { token: string }) {
   async function submitFeedback(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!attemptId) return;
-    const form = new FormData(e.currentTarget);
+
+    if (!feedback.clarity || !feedback.usefulness || !feedback.interest) {
+      setError("Pasirinkite visus tris įvertinimo atsakymus.");
+      return;
+    }
+
     await fetch(`/api/portal/${token}/feedback`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
         attemptId,
-        clarity: Number(form.get("clarity")),
-        usefulness: Number(form.get("usefulness")),
-        interest: Number(form.get("interest")),
-        comment: form.get("comment")?.toString() || undefined
+        clarity: feedback.clarity,
+        usefulness: feedback.usefulness,
+        interest: feedback.interest,
+        comment: feedback.comment || undefined
       })
     });
-    e.currentTarget.reset();
   }
 
   async function deleteData() {
@@ -201,15 +268,18 @@ export function PortalFlow({ token }: { token: string }) {
   }
 
   return (
-    <div className="grid">
-      <section className="card">
-        <h1>{data.test.title}</h1>
-        <p className="small">Kliento ID: {data.portal.internalClientId}</p>
-        <p>{data.test.description}</p>
+    <div className="grid portal-flow">
+      <section className="card portal-hero">
+        <div>
+          <h1>{data.test.title}</h1>
+          <p className="small">Kliento ID: {data.portal.internalClientId}</p>
+          <p>{data.test.description}</p>
+        </div>
+        <div className="tag">{data.test.language.toUpperCase()}</div>
       </section>
 
       {phase === "consent" ? (
-        <section className="card">
+        <section className="card portal-panel">
           <h2>Sutikimas</h2>
           <p>
             Tęsdami patvirtinate, kad perskaitėte taisykles, sutinkate su duomenų tvarkymu ir suprantate, kad
@@ -220,31 +290,36 @@ export function PortalFlow({ token }: { token: string }) {
       ) : null}
 
       {phase === "test" && current ? (
-        <section className="card">
+        <section className="card portal-panel">
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h2>
               Klausimas {index + 1} / {questions.length}
             </h2>
             <span className="tag">{progress}%</span>
           </div>
-          <p>{current.text}</p>
-          <div className="row">
-            {[1, 2, 3, 4, 5, 6].map((v) => (
+          <div className="progress-wrap">
+            <div className="progress-bar" style={{ width: `${progress}%` }} />
+          </div>
+
+          <p className="question-text">{current.text}</p>
+          <div className="likert-grid">
+            {testLikert.map((opt) => (
               <button
-                key={v}
-                className={answers[current.id] === v ? "" : "secondary"}
-                onClick={() => choose(v)}
+                key={opt.value}
+                className={`likert-option ${answers[current.id] === opt.value ? "active" : ""}`}
+                onClick={() => choose(opt.value)}
               >
-                {v}
+                {opt.label}
               </button>
             ))}
-            <button className="secondary" onClick={() => choose(null)}>
-              Praleisti
-            </button>
           </div>
+
           <div className="row" style={{ marginTop: 14 }}>
             <button className="secondary" onClick={() => setIndex((x) => Math.max(0, x - 1))}>
               Atgal
+            </button>
+            <button className="secondary" onClick={() => choose(null)}>
+              Praleisti
             </button>
             {index === questions.length - 1 ? <button onClick={finish}>Baigti testą</button> : null}
           </div>
@@ -252,7 +327,7 @@ export function PortalFlow({ token }: { token: string }) {
       ) : null}
 
       {phase === "report" ? (
-        <section className="card">
+        <section className="card portal-panel">
           <div className="row" style={{ justifyContent: "space-between" }}>
             <h2>Jūsų ataskaita</h2>
             <button className="secondary" onClick={markViewed}>
@@ -265,7 +340,7 @@ export function PortalFlow({ token }: { token: string }) {
           <p>{data.latestAttempt?.report?.interpretation}</p>
           <div className="grid">
             {data.latestAttempt?.report?.dimensions?.map((d) => (
-              <div key={d.dimension} className="row">
+              <div key={d.dimension} className="row report-chip">
                 <strong>{d.dimension}</strong>
                 <span className="tag">{d.avg}</span>
                 <span className="small">{d.level}</span>
@@ -284,21 +359,62 @@ export function PortalFlow({ token }: { token: string }) {
 
           <h3>Trumpas įvertinimas</h3>
           <form className="grid" onSubmit={submitFeedback}>
-            <label>
-              Aiškumas (1-5)
-              <input type="number" name="clarity" min={1} max={5} required />
-            </label>
-            <label>
-              Naudingumas (1-5)
-              <input type="number" name="usefulness" min={1} max={5} required />
-            </label>
-            <label>
-              Įdomumas (1-5)
-              <input type="number" name="interest" min={1} max={5} required />
-            </label>
+            <div className="feedback-item">
+              <label>Kiek buvo aišku?</label>
+              <div className="feedback-scale" role="radiogroup" aria-label="Kiek buvo aišku?">
+                {feedbackLikert.map((opt) => (
+                  <button
+                    type="button"
+                    key={`clarity-${opt.value}`}
+                    className={`feedback-pill ${feedback.clarity === opt.value ? "active" : ""}`}
+                    onClick={() => setFeedback((prev) => ({ ...prev, clarity: opt.value }))}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="feedback-item">
+              <label>Kiek buvo vertinga?</label>
+              <div className="feedback-scale" role="radiogroup" aria-label="Kiek buvo vertinga?">
+                {feedbackLikert.map((opt) => (
+                  <button
+                    type="button"
+                    key={`usefulness-${opt.value}`}
+                    className={`feedback-pill ${feedback.usefulness === opt.value ? "active" : ""}`}
+                    onClick={() => setFeedback((prev) => ({ ...prev, usefulness: opt.value }))}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
+            <div className="feedback-item">
+              <label>Kiek buvo įdomu?</label>
+              <div className="feedback-scale" role="radiogroup" aria-label="Kiek buvo įdomu?">
+                {feedbackLikert.map((opt) => (
+                  <button
+                    type="button"
+                    key={`interest-${opt.value}`}
+                    className={`feedback-pill ${feedback.interest === opt.value ? "active" : ""}`}
+                    onClick={() => setFeedback((prev) => ({ ...prev, interest: opt.value }))}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <label>
               Komentaras (optional)
-              <textarea name="comment" rows={3} />
+              <textarea
+                name="comment"
+                rows={3}
+                value={feedback.comment}
+                onChange={(e) => setFeedback((prev) => ({ ...prev, comment: e.target.value }))}
+              />
             </label>
             <button type="submit">Išsaugoti įvertinimą</button>
           </form>

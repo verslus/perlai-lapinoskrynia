@@ -123,6 +123,116 @@ button.secondary {
   font-weight: 600;
 }
 
+.portal-flow {
+  animation: fade-in 320ms ease;
+}
+
+.portal-hero {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 16px;
+  border: 1px solid #b5ccbe;
+  background: linear-gradient(155deg, #f9fdf9 0%, #f0f7f1 45%, #fff9ef 100%);
+}
+
+.portal-panel {
+  border-color: #bfd4c7;
+}
+
+.progress-wrap {
+  width: 100%;
+  height: 10px;
+  background: #e6efe8;
+  border-radius: 999px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #2f9a6b 0%, #2c7f67 100%);
+  transition: width 180ms ease;
+}
+
+.question-text {
+  font-size: 1.08rem;
+  line-height: 1.45;
+}
+
+.likert-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.likert-option {
+  text-align: left;
+  background: #ffffff;
+  color: #153025;
+  border: 1px solid #c6d8cc;
+  min-height: 56px;
+  border-radius: 14px;
+}
+
+.likert-option:hover {
+  background: #edf7f0;
+}
+
+.likert-option.active {
+  background: linear-gradient(145deg, #2c7f67 0%, #23684f 100%);
+  border-color: #23684f;
+  color: #ffffff;
+}
+
+.report-chip {
+  border: 1px solid #d2e0d6;
+  border-radius: 12px;
+  padding: 10px 12px;
+  background: #f8fbf9;
+}
+
+.feedback-item label,
+label {
+  font-weight: 600;
+}
+
+.feedback-item {
+  display: grid;
+  gap: 8px;
+}
+
+.feedback-scale {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.feedback-pill {
+  background: #fff;
+  color: #153025;
+  border: 1px solid #c7d9cd;
+  padding: 10px 8px;
+  border-radius: 999px;
+}
+
+.feedback-pill.active {
+  background: linear-gradient(145deg, #2c7f67 0%, #23684f 100%);
+  color: #fff;
+  border-color: #23684f;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 760px) {
   main {
     padding: 14px;
@@ -130,5 +240,17 @@ button.secondary {
 
   .card {
     padding: 14px;
+  }
+
+  .portal-hero {
+    flex-direction: column;
+  }
+
+  .likert-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feedback-scale {
+    grid-template-columns: 1fr;
   }
 }
