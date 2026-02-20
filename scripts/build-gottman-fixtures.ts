@@ -466,15 +466,36 @@ function resolvePdfFamily(questionnaireId: string, nameEn: string): string {
   return "03";
 }
 
-function optionsForKind(kind: string, locale: Locale): Array<{ value: number; label: string }> {
-  const k = kind.toLowerCase();
+function parseInlineChoiceOptions(text: string) {
+  const normalized = text.replace(/\s+/g, " ").trim();
+  const re = /\(([a-z])\)\s*([^()]+?)(?=\s*\([a-z]\)|$)/gi;
+  const options: string[] = [];
+  let m: RegExpExecArray | null;
+  while ((m = re.exec(normalized)) !== null) {
+    options.push(m[2].trim().replace(/[.,;:]\s*$/, ""));
+  }
+  return options;
+}
+
+function optionsForKind(args: {
+  kind: string;
+  locale: Locale;
+  questionText: string;
+  responseFormat: string;
+}): Array<{ value: number; label: string }> {
+  const k = `${args.kind} ${args.responseFormat}`.toLowerCase();
+  const choiceFromQuestion = parseInlineChoiceOptions(args.questionText);
+  if (choiceFromQuestion.length >= 2) {
+    return choiceFromQuestion.map((label, idx) => ({ value: idx + 1, label }));
+  }
+
   if (k.includes("true") && k.includes("false")) {
-    return locale === "lt"
+    return args.locale === "lt"
       ? [
           { value: 1, label: "Tiesa" },
           { value: 2, label: "Netiesa" }
         ]
-      : locale === "ua"
+      : args.locale === "ua"
         ? [
             { value: 1, label: "Правда" },
             { value: 2, label: "Неправда" }
@@ -485,13 +506,50 @@ function optionsForKind(kind: string, locale: Locale): Array<{ value: number; la
           ];
   }
 
+  if (k.includes("yes without injury") || k.includes("yes with injury")) {
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Taip, be sužalojimo" },
+          { value: 2, label: "Taip, su sužalojimu" },
+          { value: 3, label: "Ne" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Так, без травм" },
+            { value: 2, label: "Так, з травмами" },
+            { value: 3, label: "Ні" }
+          ]
+        : [
+            { value: 1, label: "Yes, without injury" },
+            { value: 2, label: "Yes, with injury" },
+            { value: 3, label: "No" }
+          ];
+  }
+
+  if (k.includes("not a problem") && k.includes("is a problem")) {
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Nėra problema" },
+          { value: 2, label: "Yra problema" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Не проблема" },
+            { value: 2, label: "Є проблемою" }
+          ]
+        : [
+            { value: 1, label: "Not a problem" },
+            { value: 2, label: "Is a problem" }
+          ];
+  }
+
   if (k.includes("yes") && k.includes("no")) {
-    return locale === "lt"
+    return args.locale === "lt"
       ? [
           { value: 1, label: "Taip" },
           { value: 2, label: "Ne" }
         ]
-      : locale === "ua"
+      : args.locale === "ua"
         ? [
             { value: 1, label: "Так" },
             { value: 2, label: "Ні" }
@@ -504,23 +562,157 @@ function optionsForKind(kind: string, locale: Locale): Array<{ value: number; la
 
   const letters = k.match(/\(([a-z](?:\/[a-z])+?)\)/i)?.[1];
   if (letters) {
-    const count = letters.split("/").length;
-    return Array.from({ length: count }, (_, i) => ({ value: i + 1, label: String.fromCharCode(65 + i) }));
+    const labels = letters.split("/");
+    return labels.map((letter, i) => ({
+      value: i + 1,
+      label:
+        args.locale === "lt"
+          ? `Variantas ${letter.toUpperCase()}`
+          : args.locale === "ua"
+            ? `Варіант ${letter.toUpperCase()}`
+            : `Option ${letter.toUpperCase()}`
+    }));
   }
 
   if (k.includes("1-7") || k.includes("very unhappy") || k.includes("perfectly happy")) {
-    return Array.from({ length: 7 }, (_, i) => ({ value: i + 1, label: String(i + 1) }));
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Labai nelaimingas(-a)" },
+          { value: 2, label: "Nelaimingas(-a)" },
+          { value: 3, label: "Šiek tiek nelaimingas(-a)" },
+          { value: 4, label: "Nei laimingas(-a), nei nelaimingas(-a)" },
+          { value: 5, label: "Šiek tiek laimingas(-a)" },
+          { value: 6, label: "Laimingas(-a)" },
+          { value: 7, label: "Tobulai laimingas(-a)" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Дуже нещасливий(-а)" },
+            { value: 2, label: "Нещасливий(-а)" },
+            { value: 3, label: "Трохи нещасливий(-а)" },
+            { value: 4, label: "Ні щасливий(-а), ні нещасливий(-а)" },
+            { value: 5, label: "Трохи щасливий(-а)" },
+            { value: 6, label: "Щасливий(-а)" },
+            { value: 7, label: "Ідеально щасливий(-а)" }
+          ]
+        : [
+            { value: 1, label: "Very unhappy" },
+            { value: 2, label: "Unhappy" },
+            { value: 3, label: "Slightly unhappy" },
+            { value: 4, label: "Neutral" },
+            { value: 5, label: "Slightly happy" },
+            { value: 6, label: "Happy" },
+            { value: 7, label: "Perfectly happy" }
+          ];
   }
 
   if (k.includes("6-point") || k.includes("always agree") || k.includes("always disagree")) {
-    return Array.from({ length: 6 }, (_, i) => ({ value: i + 1, label: String(i + 1) }));
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Visada sutinkame" },
+          { value: 2, label: "Beveik visada sutinkame" },
+          { value: 3, label: "Kartais nesutinkame" },
+          { value: 4, label: "Dažnai nesutinkame" },
+          { value: 5, label: "Beveik visada nesutinkame" },
+          { value: 6, label: "Visada nesutinkame" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Завжди згодні" },
+            { value: 2, label: "Майже завжди згодні" },
+            { value: 3, label: "Іноді не згодні" },
+            { value: 4, label: "Часто не згодні" },
+            { value: 5, label: "Майже завжди не згодні" },
+            { value: 6, label: "Завжди не згодні" }
+          ]
+        : [
+            { value: 1, label: "Always agree" },
+            { value: 2, label: "Almost always agree" },
+            { value: 3, label: "Occasionally disagree" },
+            { value: 4, label: "Frequently disagree" },
+            { value: 5, label: "Almost always disagree" },
+            { value: 6, label: "Always disagree" }
+          ];
+  }
+
+  if (k.includes("strongly disagree") || k.includes("strongly agree")) {
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Visiškai nesutinku" },
+          { value: 2, label: "Nesutinku" },
+          { value: 3, label: "Nei sutinku, nei nesutinku" },
+          { value: 4, label: "Sutinku" },
+          { value: 5, label: "Visiškai sutinku" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Повністю не згоден(-на)" },
+            { value: 2, label: "Не згоден(-на)" },
+            { value: 3, label: "Ні згоден(-на), ні не згоден(-на)" },
+            { value: 4, label: "Згоден(-на)" },
+            { value: 5, label: "Повністю згоден(-на)" }
+          ]
+        : [
+            { value: 1, label: "Strongly disagree" },
+            { value: 2, label: "Disagree" },
+            { value: 3, label: "Neither agree nor disagree" },
+            { value: 4, label: "Agree" },
+            { value: 5, label: "Strongly agree" }
+          ];
   }
 
   if (k.includes("1-5") || k.includes("five-point") || k.includes("1 to 5") || k.includes("1–5")) {
-    return Array.from({ length: 5 }, (_, i) => ({ value: i + 1, label: String(i + 1) }));
+    return args.locale === "lt"
+      ? [
+          { value: 1, label: "Labai žemai" },
+          { value: 2, label: "Žemai" },
+          { value: 3, label: "Vidutiniškai" },
+          { value: 4, label: "Aukštai" },
+          { value: 5, label: "Labai aukštai" }
+        ]
+      : args.locale === "ua"
+        ? [
+            { value: 1, label: "Дуже низько" },
+            { value: 2, label: "Низько" },
+            { value: 3, label: "Середньо" },
+            { value: 4, label: "Високо" },
+            { value: 5, label: "Дуже високо" }
+          ]
+        : [
+            { value: 1, label: "Very low" },
+            { value: 2, label: "Low" },
+            { value: 3, label: "Moderate" },
+            { value: 4, label: "High" },
+            { value: 5, label: "Very high" }
+          ];
   }
 
-  return Array.from({ length: 6 }, (_, i) => ({ value: i + 1, label: String(i + 1) }));
+  return args.locale === "lt"
+    ? [
+        { value: 1, label: "Visiškai netinka" },
+        { value: 2, label: "Labiau netinka" },
+        { value: 3, label: "Šiek tiek netinka" },
+        { value: 4, label: "Šiek tiek tinka" },
+        { value: 5, label: "Labiau tinka" },
+        { value: 6, label: "Visiškai tinka" }
+      ]
+    : args.locale === "ua"
+      ? [
+          { value: 1, label: "Зовсім не підходить" },
+          { value: 2, label: "Скоріше не підходить" },
+          { value: 3, label: "Трохи не підходить" },
+          { value: 4, label: "Трохи підходить" },
+          { value: 5, label: "Скоріше підходить" },
+          { value: 6, label: "Повністю підходить" }
+        ]
+      : [
+          { value: 1, label: "Completely untrue" },
+          { value: 2, label: "Mostly untrue" },
+          { value: 3, label: "Slightly untrue" },
+          { value: 4, label: "Slightly true" },
+          { value: 5, label: "Mostly true" },
+          { value: 6, label: "Completely true" }
+        ];
 }
 
 function detectQuestionnaireSignature(data: QuestionnaireData): string {
@@ -583,11 +775,25 @@ function enrich(data: QuestionnaireData, fallback?: QuestionnaireData): Question
     itemResponseTypeRaw: data.itemResponseTypeRaw || fallback?.itemResponseTypeRaw || ""
   };
 
+  const useIndexFallback = (() => {
+    if (!fallback) return false;
+    if (data.questionnaireId === "srh-house" || data.questionnaireId === "detour-scales") return true;
+    if (data.items.length !== fallback.items.length) return false;
+    const dataHasZero = data.items.some((item) => item.itemNumberRaw === "0");
+    const fallbackHasZero = fallback.items.some((item) => item.itemNumberRaw === "0");
+    if (dataHasZero !== fallbackHasZero) return true;
+
+    const directMatches = data.items.filter((item) =>
+      fallback.items.some((x) => x.itemNumberRaw === item.itemNumberRaw)
+    ).length;
+
+    return directMatches / data.items.length < 0.6;
+  })();
+
   merged.items = data.items.map((item, index) => {
-    const fb =
-      data.questionnaireId === "srh-house" || data.questionnaireId === "detour-scales"
-        ? fallback?.items[index]
-        : fallback?.items.find((x) => x.itemNumberRaw === item.itemNumberRaw);
+    const fb = useIndexFallback
+      ? fallback?.items[index]
+      : fallback?.items.find((x) => x.itemNumberRaw === item.itemNumberRaw);
     return {
       ...item,
       text: {
@@ -627,7 +833,12 @@ function buildFixturesForVersion(args: {
           merged.responseFormats.en ||
           merged.itemResponseTypeRaw ||
           "";
-        responseOptionsByOrder[order] = optionsForKind(kind, language);
+        responseOptionsByOrder[order] = optionsForKind({
+          kind,
+          locale: language,
+          questionText: item.text[language] || item.text.en || "",
+          responseFormat
+        });
 
         const text = item.text[language] || item.text.en || `[missing ${language}]`;
         return {
@@ -720,8 +931,8 @@ async function main() {
       if (same) {
         fixtures.push(...buildFixturesForVersion({ slug, version: 1, data: s, fallback: p }));
       } else {
-        fixtures.push(...buildFixturesForVersion({ slug, version: 1, data: s }));
-        fixtures.push(...buildFixturesForVersion({ slug, version: 2, data: p }));
+        fixtures.push(...buildFixturesForVersion({ slug, version: 1, data: s, fallback: p }));
+        fixtures.push(...buildFixturesForVersion({ slug, version: 2, data: p, fallback: s }));
       }
 
       diffSummary.push({

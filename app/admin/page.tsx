@@ -101,16 +101,26 @@ export default async function AdminPage({
           <thead>
             <tr>
               <th>Slug</th>
+              <th>Testo raktas</th>
               <th>Pavadinimas</th>
               <th>Kategorija</th>
               <th>Kalba / versija</th>
               <th>Aprašas</th>
+              <th>Testo instrukcija</th>
               <th>Admin instrukcija</th>
             </tr>
           </thead>
           <tbody>
             {filteredTestVersions.map((tv) => {
               const category = resolveTestCategory(tv.scoringConfigJson, tv.test.slug);
+              const scoring = tv.scoringConfigJson as
+                | {
+                    instructions?: { user?: string; admin?: string };
+                    source?: { questionnaireId?: string };
+                  }
+                | undefined;
+              const testKey = scoring?.source?.questionnaireId || tv.test.slug;
+              const testInstruction = scoring?.instructions?.user || "-";
               const adminInstruction =
                 typeof tv.scoringConfigJson === "object" &&
                 tv.scoringConfigJson &&
@@ -123,12 +133,14 @@ export default async function AdminPage({
               return (
                 <tr key={tv.id}>
                   <td>{tv.test.slug}</td>
+                  <td>{testKey}</td>
                   <td>{tv.title}</td>
                   <td>{getCategoryLabel(category)}</td>
                   <td>
                     {tv.language} v{tv.version}
                   </td>
                   <td>{tv.description}</td>
+                  <td>{testInstruction}</td>
                   <td>{adminInstruction}</td>
                 </tr>
               );
