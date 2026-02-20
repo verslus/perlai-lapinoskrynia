@@ -94,19 +94,122 @@ function getDefaultLikert(language: string) {
   return lt;
 }
 
-const feedbackLikert = [
-  { value: 1, label: "Visiškai ne" },
-  { value: 2, label: "Labiau ne" },
-  { value: 3, label: "Per vidurį" },
-  { value: 4, label: "Labiau taip" },
-  { value: 5, label: "Labai taip" }
-];
+function getPortalUi(language: string) {
+  if (language === "en") {
+    return {
+      load: "Loading...",
+      openError: "Could not open portal",
+      genericError: "Error",
+      personalTest: "Personal assessment",
+      clientId: "Client ID",
+      questionsCount: "questions",
+      consent: "Consent",
+      consentText:
+        "By continuing, you confirm that you have read the rules, agree to data processing, and understand this assessment is not a medical diagnosis.",
+      start: "Start test",
+      questionLabel: "Question",
+      back: "Back",
+      skip: "Skip",
+      finish: "Finish test",
+      reportTitle: "Your report",
+      reportViewed: "View recorded",
+      reportTracking: "Recording view automatically...",
+      overallScore: "Overall score",
+      comparisonTitle: "Comparison with previous attempt",
+      previous: "Previous",
+      current: "Current",
+      change: "Change",
+      feedbackTitle: "Quick feedback",
+      feedbackDone: "Feedback already submitted. Thank you.",
+      feedbackSaved: "Feedback saved.",
+      feedbackComment: "Comment (optional)",
+      feedbackSave: "Save feedback",
+      deleteData: "Delete my data",
+      deletePrompt: 'Type "DELETE"',
+      feedbackMissing: "Please answer all three feedback questions.",
+      clarity: "How clear was it?",
+      usefulness: "How useful was it?",
+      interest: "How interesting was it?",
+      feedbackScale: ["Not at all", "Rather no", "Neutral", "Rather yes", "Very much"]
+    };
+  }
 
-const feedbackPrompts: Array<{ key: FeedbackKey; label: string }> = [
-  { key: "clarity", label: "Kiek buvo aišku?" },
-  { key: "usefulness", label: "Kiek buvo vertinga?" },
-  { key: "interest", label: "Kiek buvo įdomu?" }
-];
+  if (language === "ua") {
+    return {
+      load: "Завантаження...",
+      openError: "Не вдалося відкрити портал",
+      genericError: "Помилка",
+      personalTest: "Особистий тест",
+      clientId: "ID клієнта",
+      questionsCount: "питань",
+      consent: "Згода",
+      consentText:
+        "Продовжуючи, ви підтверджуєте, що ознайомилися з правилами, погоджуєтесь на обробку даних і розумієте, що тест не є медичним діагнозом.",
+      start: "Почати тест",
+      questionLabel: "Питання",
+      back: "Назад",
+      skip: "Пропустити",
+      finish: "Завершити тест",
+      reportTitle: "Ваш звіт",
+      reportViewed: "Перегляд зафіксовано",
+      reportTracking: "Перегляд фіксується автоматично...",
+      overallScore: "Загальний бал",
+      comparisonTitle: "Порівняння з попередньою спробою",
+      previous: "Попередній",
+      current: "Поточний",
+      change: "Зміна",
+      feedbackTitle: "Короткий відгук",
+      feedbackDone: "Відгук уже збережено. Дякуємо.",
+      feedbackSaved: "Відгук збережено.",
+      feedbackComment: "Коментар (необов'язково)",
+      feedbackSave: "Зберегти відгук",
+      deleteData: "Видалити мої дані",
+      deletePrompt: 'Введіть "ВИДАЛИТИ"',
+      feedbackMissing: "Оберіть усі три відповіді оцінювання.",
+      clarity: "Наскільки зрозуміло було?",
+      usefulness: "Наскільки корисно було?",
+      interest: "Наскільки цікаво було?",
+      feedbackScale: ["Зовсім ні", "Скоріше ні", "Посередньо", "Скоріше так", "Дуже так"]
+    };
+  }
+
+  return {
+    load: "Kraunama...",
+    openError: "Nepavyko atidaryti portalo",
+    genericError: "Klaida",
+    personalTest: "Asmeninis testas",
+    clientId: "Kliento ID",
+    questionsCount: "klausimų",
+    consent: "Sutikimas",
+    consentText:
+      "Tęsdami patvirtinate, kad perskaitėte taisykles, sutinkate su duomenų tvarkymu ir suprantate, kad testas nėra medicininė diagnozė.",
+    start: "Pradėti testą",
+    questionLabel: "Klausimas",
+    back: "Atgal",
+    skip: "Praleisti",
+    finish: "Baigti testą",
+    reportTitle: "Jūsų ataskaita",
+    reportViewed: "Peržiūra užfiksuota",
+    reportTracking: "Peržiūra fiksuojama automatiškai...",
+    overallScore: "Bendras balas",
+    comparisonTitle: "Palyginimas su ankstesniu atlikimu",
+    previous: "Ankstesnis",
+    current: "Dabartinis",
+    change: "Pokytis",
+    feedbackTitle: "Trumpas įvertinimas",
+    feedbackDone: "Įvertinimas jau išsaugotas. Ačiū už atsakymus.",
+    feedbackSaved: "Įvertinimas išsaugotas.",
+    feedbackComment: "Komentaras (optional)",
+    feedbackSave: "Išsaugoti įvertinimą",
+    deleteData: "Ištrinti mano duomenis",
+    deletePrompt: 'Įrašykite "ISTRINTI"',
+    feedbackMissing: "Pasirinkite visus tris įvertinimo atsakymus.",
+    clarity: "Kiek buvo aišku?",
+    usefulness: "Kiek buvo vertinga?",
+    interest: "Kiek buvo įdomu?",
+    feedbackScale: ["Visiškai ne", "Labiau ne", "Per vidurį", "Labiau taip", "Labai taip"]
+  };
+}
 
 export function PortalFlow({ token }: { token: string }) {
   const [data, setData] = useState<InitPayload | null>(null);
@@ -127,12 +230,15 @@ export function PortalFlow({ token }: { token: string }) {
   const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
   const [reportMarked, setReportMarked] = useState(false);
 
+  const locale = data?.test.language ?? "lt";
+  const ui = getPortalUi(locale);
+
   useEffect(() => {
     async function init() {
       const res = await fetch(`/api/portal/${token}/init`);
       const payload = await res.json();
       if (!res.ok) {
-        setError(payload.error ?? "Nepavyko atidaryti portalo");
+        setError(payload.error ?? getPortalUi("lt").openError);
         setLoading(false);
         return;
       }
@@ -161,7 +267,14 @@ export function PortalFlow({ token }: { token: string }) {
   const questions = data?.test.questions ?? [];
   const current = questions[index];
   const progress = questions.length ? Math.round(((index + 1) / questions.length) * 100) : 0;
-  const fallbackLikert = getDefaultLikert(data?.test.language ?? "lt");
+  const fallbackLikert = getDefaultLikert(locale);
+  const feedbackLikert = ui.feedbackScale.map((label, i) => ({ value: i + 1, label }));
+  const feedbackPrompts: Array<{ key: FeedbackKey; label: string }> = [
+    { key: "clarity", label: ui.clarity },
+    { key: "usefulness", label: ui.usefulness },
+    { key: "interest", label: ui.interest }
+  ];
+
   const currentOptions =
     data?.test.scoringConfig?.responseOptionsByOrder?.[String(current?.questionOrder ?? 0)] ?? fallbackLikert;
 
@@ -182,7 +295,7 @@ export function PortalFlow({ token }: { token: string }) {
     });
     const payload = await res.json();
     if (!res.ok) {
-      setError(payload.error ?? "Nepavyko pradėti");
+      setError(payload.error ?? ui.genericError);
       return;
     }
     setAttemptId(payload.attemptId);
@@ -221,7 +334,7 @@ export function PortalFlow({ token }: { token: string }) {
     });
     const payload = await res.json();
     if (!res.ok) {
-      setError(payload.error ?? "Nepavyko užbaigti");
+      setError(payload.error ?? ui.genericError);
       return;
     }
 
@@ -271,7 +384,7 @@ export function PortalFlow({ token }: { token: string }) {
     if (!attemptId) return;
 
     if (!feedback.clarity || !feedback.usefulness || !feedback.interest) {
-      setError("Pasirinkite visus tris įvertinimo atsakymus.");
+      setError(ui.feedbackMissing);
       return;
     }
 
@@ -321,7 +434,7 @@ export function PortalFlow({ token }: { token: string }) {
   }, [phase, attemptId, reportMarked, reportSeenAt]);
 
   async function deleteData() {
-    const phrase = prompt('Įrašykite "ISTRINTI"');
+    const phrase = prompt(ui.deletePrompt);
     if (!phrase) return;
     const res = await fetch(`/api/portal/${token}/delete`, {
       method: "POST",
@@ -334,39 +447,40 @@ export function PortalFlow({ token }: { token: string }) {
   }
 
   if (loading) {
-    return <p>Kraunama...</p>;
+    return <p>{ui.load}</p>;
   }
 
   if (error || !data) {
-    return <p style={{ color: "#8c2a2a" }}>{error ?? "Klaida"}</p>;
+    return <p style={{ color: "#8c2a2a" }}>{error ?? ui.genericError}</p>;
   }
 
   return (
     <div className="portal-flow">
       <section className="card portal-hero">
         <div className="portal-hero-main">
-          <p className="portal-overline">Asmeninis testas</p>
+          <p className="portal-overline">{ui.personalTest}</p>
           <h1>{data.test.title}</h1>
-          <p className="small">Kliento ID: {data.portal.internalClientId}</p>
+          <p className="small">
+            {ui.clientId}: {data.portal.internalClientId}
+          </p>
           <p className="portal-hero-description">{data.test.description}</p>
         </div>
         <div className="portal-badges">
           <span className="tag">{data.test.language.toUpperCase()}</span>
-          <span className="tag">{questions.length} klausimų</span>
+          <span className="tag">
+            {questions.length} {ui.questionsCount}
+          </span>
         </div>
       </section>
 
       {phase === "consent" ? (
         <section className="card portal-panel portal-consent">
-          <h2>Sutikimas</h2>
+          <h2>{ui.consent}</h2>
           {data.test.scoringConfig?.instructions?.user ? (
             <p style={{ marginBottom: 10 }}>{data.test.scoringConfig.instructions.user}</p>
           ) : null}
-          <p>
-            Tęsdami patvirtinate, kad perskaitėte taisykles, sutinkate su duomenų tvarkymu ir suprantate, kad
-            testas nėra medicininė diagnozė.
-          </p>
-          <button onClick={start}>Pradėti testą</button>
+          <p>{ui.consentText}</p>
+          <button onClick={start}>{ui.start}</button>
         </section>
       ) : null}
 
@@ -374,7 +488,7 @@ export function PortalFlow({ token }: { token: string }) {
         <section className="card portal-panel portal-test-shell">
           <div className="row portal-test-head">
             <h2>
-              Klausimas {index + 1} / {questions.length}
+              {ui.questionLabel} {index + 1} / {questions.length}
             </h2>
             <span className="tag">{progress}%</span>
           </div>
@@ -396,7 +510,6 @@ export function PortalFlow({ token }: { token: string }) {
                   <span className="likert-label-wrap">
                     <span className="likert-label">{opt.label}</span>
                   </span>
-                  <span className="likert-check">{active ? "Pasirinkta" : "Pasirinkti"}</span>
                 </button>
               );
             })}
@@ -404,12 +517,12 @@ export function PortalFlow({ token }: { token: string }) {
 
           <div className="row" style={{ marginTop: 14 }}>
             <button className="secondary" onClick={() => setIndex((x) => Math.max(0, x - 1))}>
-              Atgal
+              {ui.back}
             </button>
             <button className="secondary" onClick={() => choose(null)}>
-              Praleisti
+              {ui.skip}
             </button>
-            {index === questions.length - 1 ? <button onClick={finish}>Baigti testą</button> : null}
+            {index === questions.length - 1 ? <button onClick={finish}>{ui.finish}</button> : null}
           </div>
         </section>
       ) : null}
@@ -417,11 +530,11 @@ export function PortalFlow({ token }: { token: string }) {
       {phase === "report" ? (
         <section className="card portal-panel">
           <div className="row portal-test-head">
-            <h2>Jūsų ataskaita</h2>
-            <span className="small">{reportMarked ? "Peržiūra užfiksuota" : "Peržiūra fiksuojama automatiškai..."}</span>
+            <h2>{ui.reportTitle}</h2>
+            <span className="small">{reportMarked ? ui.reportViewed : ui.reportTracking}</span>
           </div>
           <div className="report-summary">
-            <p className="small">Bendras balas</p>
+            <p className="small">{ui.overallScore}</p>
             <p className="report-total">{data.latestAttempt?.report?.overall ?? data.latestAttempt?.score?.overall ?? "-"}</p>
             <p>{data.latestAttempt?.report?.interpretation}</p>
           </div>
@@ -438,15 +551,15 @@ export function PortalFlow({ token }: { token: string }) {
           </div>
 
           <hr style={{ margin: "18px 0", border: 0, borderTop: "1px solid #d4dfd6" }} />
-          <h3>Palyginimas su ankstesniu atlikimu</h3>
+          <h3>{ui.comparisonTitle}</h3>
           <p>
-            Ankstesnis: {data.previousAttempt?.score?.overall ?? "-"} | Dabartinis: {data.latestAttempt?.score?.overall ?? "-"}
-            {deltaLabel ? ` | Pokytis: ${deltaLabel}` : ""}
+            {ui.previous}: {data.previousAttempt?.score?.overall ?? "-"} | {ui.current}: {data.latestAttempt?.score?.overall ?? "-"}
+            {deltaLabel ? ` | ${ui.change}: ${deltaLabel}` : ""}
           </p>
 
-          <h3>Trumpas įvertinimas</h3>
+          <h3>{ui.feedbackTitle}</h3>
           {feedbackSubmitted ? (
-            <p className="small">Įvertinimas jau išsaugotas. Ačiū už atsakymus.</p>
+            <p className="small">{ui.feedbackDone}</p>
           ) : (
             <form className="grid" onSubmit={submitFeedback}>
               {feedbackPrompts.map((prompt) => (
@@ -474,7 +587,7 @@ export function PortalFlow({ token }: { token: string }) {
               ))}
 
               <label>
-                Komentaras (optional)
+                {ui.feedbackComment}
                 <textarea
                   name="comment"
                   rows={3}
@@ -485,14 +598,14 @@ export function PortalFlow({ token }: { token: string }) {
                   }}
                 />
               </label>
-              <button type="submit">Išsaugoti įvertinimą</button>
-              {feedbackStatus === "saved" ? <p className="small">Įvertinimas išsaugotas.</p> : null}
+              <button type="submit">{ui.feedbackSave}</button>
+              {feedbackStatus === "saved" ? <p className="small">{ui.feedbackSaved}</p> : null}
             </form>
           )}
 
           <div style={{ marginTop: 16 }}>
             <button className="secondary" onClick={deleteData}>
-              Ištrinti mano duomenis
+              {ui.deleteData}
             </button>
           </div>
         </section>

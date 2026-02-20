@@ -17,7 +17,8 @@
     "import:ysq": "tsx scripts/import-ysq-fixtures.ts",
     "fixtures:gottman": "tsx scripts/build-gottman-fixtures.ts",
     "import:gottman": "tsx scripts/import-gottman-fixtures.ts",
-    "prune:gottman": "tsx scripts/prune-gottman-versions.ts"
+    "prune:gottman": "tsx scripts/prune-gottman-versions.ts",
+    "export:srh-csv": "tsx scripts/export-srh-house-csv.ts"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "3.750.0",
