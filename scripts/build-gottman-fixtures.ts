@@ -178,9 +178,9 @@ function canonicalQuestionnaireKey(source: SourceName, questionnaireId: string, 
       phys: "physical-aggression",
       cage: "cage-aid",
       bmast: "b-mast",
-      chaos: "detour-chaos",
-      meta: "detour-meta-emotions",
-      famhx: "detour-family-history"
+      chaos: "detour-scales",
+      meta: "detour-scales",
+      famhx: "detour-scales"
     };
     if (map[id]) return map[id];
     if (id.startsWith("19a-")) return `19areas-${id}`;
@@ -205,9 +205,9 @@ function canonicalQuestionnaireKey(source: SourceName, questionnaireId: string, 
       "02o": "srh-house",
       "02p": "srh-house",
       "3": "19areas-master",
-      "04a": "detour-chaos",
-      "04b": "detour-meta-emotions",
-      "04c": "detour-family-history",
+      "04a": "detour-scales",
+      "04b": "detour-scales",
+      "04c": "detour-scales",
       "5": "eaq",
       "06a": "control",
       "06b": "fear",
@@ -360,32 +360,61 @@ function groupQuestionnaires(rows: RowNorm[]): Map<string, QuestionnaireData> {
 }
 
 function normalizeForCanonicalKey(data: QuestionnaireData, canonicalKey: string): QuestionnaireData {
-  if (canonicalKey !== "srh-house") return data;
+  if (canonicalKey === "srh-house") {
+    return {
+      ...data,
+      questionnaireId: "srh-house",
+      names: {
+        en: "Sound Relationship House Questionnaires",
+        lt: "Tvirtų santykių namo klausimynai",
+        ua: "Опитувальники Будинку здорових стосунків"
+      },
+      descriptions: {
+        en:
+          data.descriptions.en ||
+          "Combined Sound Relationship House questionnaire pack (all SRH subscales in one assessment).",
+        lt:
+          data.descriptions.lt ||
+          "Sujungtas Tvirtų santykių namo klausimynų paketas (visos SRH subskalės viename vertinime).",
+        ua:
+          data.descriptions.ua ||
+          "Об'єднаний пакет опитувальників Будинку здорових стосунків (усі підшкали SRH в одному тесті)."
+      },
+      items: data.items.map((item) => ({
+        ...item,
+        itemNumberRaw: `${data.questionnaireId}-${item.itemNumberRaw}`
+      }))
+    };
+  }
 
-  return {
-    ...data,
-    questionnaireId: "srh-house",
-    names: {
-      en: "Sound Relationship House Questionnaires",
-      lt: "Tvirtų santykių namo klausimynai",
-      ua: "Опитувальники Будинку здорових стосунків"
-    },
-    descriptions: {
-      en:
-        data.descriptions.en ||
-        "Combined Sound Relationship House questionnaire pack (all SRH subscales in one assessment).",
-      lt:
-        data.descriptions.lt ||
-        "Sujungtas Tvirtų santykių namo klausimynų paketas (visos SRH subskalės viename vertinime).",
-      ua:
-        data.descriptions.ua ||
-        "Об'єднаний пакет опитувальників Будинку здорових стосунків (усі підшкали SRH в одному тесті)."
-    },
-    items: data.items.map((item) => ({
-      ...item,
-      itemNumberRaw: `${data.questionnaireId}-${item.itemNumberRaw}`
-    }))
-  };
+  if (canonicalKey === "detour-scales") {
+    return {
+      ...data,
+      questionnaireId: "detour-scales",
+      names: {
+        en: "Three Detour Scales",
+        lt: "Trys apylankos skalės",
+        ua: "Три обхідні шкали"
+      },
+      descriptions: {
+        en:
+          data.descriptions.en ||
+          "Combined Three Detour Scales questionnaire pack (Chaos, Meta-Emotions, and My Family History).",
+        lt:
+          data.descriptions.lt ||
+          "Sujungtas trijų apylankos skalių paketas (Chaosas, Meta-emocijos ir Šeimos istorija).",
+        ua:
+          data.descriptions.ua ||
+          "Об'єднаний пакет трьох обхідних шкал (Хаос, Мета-емоції та Сімейна історія)."
+      },
+      items: data.items.map((item) => ({
+        ...item,
+        itemNumberRaw: `${data.questionnaireId}-${item.itemNumberRaw}`
+      }))
+    };
+  }
+
+  return data;
 }
 
 function mergeQuestionnaireData(base: QuestionnaireData, incoming: QuestionnaireData): QuestionnaireData {
@@ -495,7 +524,7 @@ function optionsForKind(kind: string, locale: Locale): Array<{ value: number; la
 }
 
 function detectQuestionnaireSignature(data: QuestionnaireData): string {
-  if (data.questionnaireId === "srh-house") {
+  if (data.questionnaireId === "srh-house" || data.questionnaireId === "detour-scales") {
     return data.items.map((item) => canonicalText(item.text.en)).join("|");
   }
   return data.items
@@ -556,7 +585,7 @@ function enrich(data: QuestionnaireData, fallback?: QuestionnaireData): Question
 
   merged.items = data.items.map((item, index) => {
     const fb =
-      data.questionnaireId === "srh-house"
+      data.questionnaireId === "srh-house" || data.questionnaireId === "detour-scales"
         ? fallback?.items[index]
         : fallback?.items.find((x) => x.itemNumberRaw === item.itemNumberRaw);
     return {

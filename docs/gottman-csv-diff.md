@@ -2,10 +2,10 @@
 
 - Pirminis failas: `/Users/az/Downloads/gottman_questionnaires_lt_ua_en.csv`
 - Antrinis failas: `/Users/az/Downloads/gottman_klausimynai_en_lt_ua.csv`
-- Bendras sujungtų klausimynų kiekis: **13**
+- Bendras sujungtų klausimynų kiekis: **11**
 - Tik pirminiame: **0**
 - Tik antriniame: **1**
-- Besiskiriantys tarp abiejų (sukurta atskira versija): **4**
+- Besiskiriantys tarp abiejų (sukurta atskira versija): **5**
 
 ## Trūkstami klausimų vertimai po sujungimo
 - EN: 0
@@ -25,6 +25,4 @@
 | Locke-Wallace Relationship Adjustment Test | DIFF -> atskira versija | 16 | 16 |
 | Sound Relationship House Questionnaires | DIFF -> atskira versija | 142 | 142 |
 | Suicide Potential Questionnaire | DIFF -> atskira versija | 6 | 6 |
-| Three Detour Scales: Chaos | Sutampa | 15 | 15 |
-| Three Detour Scales: Meta-Emotions (Your Own Feelings About Emotions) | Sutampa | 45 | 45 |
-| Three Detour Scales: My Family History | Sutampa | 79 | 79 |
+| Three Detour Scales | DIFF -> atskira versija | 139 | 139 |
