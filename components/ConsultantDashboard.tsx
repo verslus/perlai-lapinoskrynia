@@ -1,10 +1,14 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
+import { TEST_CATEGORIES, getCategoryLabel, type TestCategory } from "@/lib/test-categories";
 
 type TestVersion = {
   id: string;
   label: string;
+  language: string;
+  category: TestCategory;
+  categoryLabel: string;
   description: string;
   consultantInstruction: string | null;
 };
@@ -29,16 +33,41 @@ export function ConsultantDashboard({
   rows: PortalRow[];
 }) {
   const [internalClientId, setInternalClientId] = useState("");
+  const [languageFilter, setLanguageFilter] = useState("all");
+  const [categoryFilter, setCategoryFilter] = useState<"all" | TestCategory>("all");
   const [testVersionId, setTestVersionId] = useState(tests[0]?.id ?? "");
   const [email, setEmail] = useState("");
   const [createdUrl, setCreatedUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
-  const selectedTest = tests.find((t) => t.id === testVersionId) ?? null;
+
+  const languages = useMemo(() => [...new Set(tests.map((t) => t.language))].sort(), [tests]);
+
+  const filteredTests = useMemo(
+    () =>
+      tests.filter(
+        (t) =>
+          (languageFilter === "all" || t.language === languageFilter) &&
+          (categoryFilter === "all" || t.category === categoryFilter)
+      ),
+    [tests, languageFilter, categoryFilter]
+  );
+
+  useEffect(() => {
+    if (!filteredTests.some((t) => t.id === testVersionId)) {
+      setTestVersionId(filteredTests[0]?.id ?? "");
+    }
+  }, [filteredTests, testVersionId]);
+
+  const selectedTest = filteredTests.find((t) => t.id === testVersionId) ?? null;
 
   async function createLink(e: React.FormEvent) {
     e.preventDefault();
     setError(null);
     setCreatedUrl(null);
+    if (!testVersionId) {
+      setError("Pasirinkite testą.");
+      return;
+    }
 
     const res = await fetch("/api/consultant/access-links", {
       method: "POST",
@@ -81,6 +110,33 @@ export function ConsultantDashboard({
           </div>
         ) : null}
         <form className="grid" onSubmit={createLink}>
+          <div className="row">
+            <label style={{ flex: 1 }}>
+              Kalba
+              <select value={languageFilter} onChange={(e) => setLanguageFilter(e.target.value)}>
+                <option value="all">Visos</option>
+                {languages.map((lang) => (
+                  <option key={lang} value={lang}>
+                    {lang.toUpperCase()}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label style={{ flex: 1 }}>
+              Kategorija
+              <select
+                value={categoryFilter}
+                onChange={(e) => setCategoryFilter(e.target.value as "all" | TestCategory)}
+              >
+                <option value="all">Visos</option>
+                {TEST_CATEGORIES.map((category) => (
+                  <option key={category} value={category}>
+                    {getCategoryLabel(category)}
+                  </option>
+                ))}
+              </select>
+            </label>
+          </div>
           <label>
             Vidinis kliento ID
             <input value={internalClientId} onChange={(e) => setInternalClientId(e.target.value)} required />
@@ -88,9 +144,9 @@ export function ConsultantDashboard({
           <label>
             Testas
             <select value={testVersionId} onChange={(e) => setTestVersionId(e.target.value)} required>
-              {tests.map((test) => (
+              {filteredTests.map((test) => (
                 <option key={test.id} value={test.id}>
-                  {test.label}
+                  {test.label} | {test.categoryLabel}
                 </option>
               ))}
             </select>
@@ -99,7 +155,10 @@ export function ConsultantDashboard({
             El. paštas (optional)
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
           </label>
-          <button type="submit">Sukurti nuorodą</button>
+          <button type="submit" disabled={!testVersionId}>
+            Sukurti nuorodą
+          </button>
+          {!filteredTests.length ? <p className="small">Pagal pasirinktus filtrus testų nerasta.</p> : null}
           {error ? <p style={{ color: "#8c2a2a" }}>{error}</p> : null}
           {createdUrl ? (
             <p>

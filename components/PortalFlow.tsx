@@ -124,6 +124,8 @@ export function PortalFlow({ token }: { token: string }) {
     comment: ""
   });
   const [feedbackStatus, setFeedbackStatus] = useState<"idle" | "saved">("idle");
+  const [feedbackSubmitted, setFeedbackSubmitted] = useState(false);
+  const [reportMarked, setReportMarked] = useState(false);
 
   useEffect(() => {
     async function init() {
@@ -143,10 +145,13 @@ export function PortalFlow({ token }: { token: string }) {
           interest: payload.latestAttempt.feedback.interest,
           comment: payload.latestAttempt.feedback.comment ?? ""
         });
+        setFeedbackSubmitted(true);
       }
       if (payload.latestAttempt?.status === "FINISHED" || payload.latestAttempt?.status === "REPORT_VIEWED") {
         setAttemptId(payload.latestAttempt.id);
         setPhase("report");
+        setReportSeenAt(Date.now());
+        setReportMarked(payload.latestAttempt.status === "REPORT_VIEWED");
       }
       setLoading(false);
     }
@@ -239,14 +244,26 @@ export function PortalFlow({ token }: { token: string }) {
     setReportSeenAt(Date.now());
   }
 
-  async function markViewed() {
-    if (!attemptId || !reportSeenAt) return;
-    const delta = Math.floor((Date.now() - reportSeenAt) / 1000);
+  async function markViewed(deltaOverrideSec?: number) {
+    if (!attemptId || reportMarked) return;
+    const delta = deltaOverrideSec ?? (reportSeenAt ? Math.floor((Date.now() - reportSeenAt) / 1000) : 0);
     await fetch(`/api/portal/${token}/report-viewed`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ attemptId, reportDurationSecDelta: Math.max(delta, 0) })
     });
+    setReportMarked(true);
+    setData((prev) =>
+      prev?.latestAttempt
+        ? {
+            ...prev,
+            latestAttempt: {
+              ...prev.latestAttempt,
+              status: "REPORT_VIEWED"
+            }
+          }
+        : prev
+    );
   }
 
   async function submitFeedback(e: React.FormEvent<HTMLFormElement>) {
@@ -271,7 +288,37 @@ export function PortalFlow({ token }: { token: string }) {
     });
     setError(null);
     setFeedbackStatus("saved");
+    setFeedbackSubmitted(true);
+    setData((prev) =>
+      prev?.latestAttempt
+        ? {
+            ...prev,
+            latestAttempt: {
+              ...prev.latestAttempt,
+              feedback: {
+                clarity: feedback.clarity!,
+                usefulness: feedback.usefulness!,
+                interest: feedback.interest!,
+                comment: feedback.comment || null
+              }
+            }
+          }
+        : prev
+    );
   }
+
+  useEffect(() => {
+    if (phase !== "report" || !attemptId || reportMarked) return;
+    const startedAt = reportSeenAt ?? Date.now();
+    if (!reportSeenAt) {
+      setReportSeenAt(startedAt);
+    }
+    const timer = window.setTimeout(() => {
+      const deltaSec = Math.max(1, Math.floor((Date.now() - startedAt) / 1000));
+      void markViewed(deltaSec);
+    }, 3000);
+    return () => window.clearTimeout(timer);
+  }, [phase, attemptId, reportMarked, reportSeenAt]);
 
   async function deleteData() {
     const phrase = prompt('Įrašykite "ISTRINTI"');
@@ -371,9 +418,7 @@ export function PortalFlow({ token }: { token: string }) {
         <section className="card portal-panel">
           <div className="row portal-test-head">
             <h2>Jūsų ataskaita</h2>
-            <button className="secondary" onClick={markViewed}>
-              Pažymėti, kad peržiūrėta
-            </button>
+            <span className="small">{reportMarked ? "Peržiūra užfiksuota" : "Peržiūra fiksuojama automatiškai..."}</span>
           </div>
           <div className="report-summary">
             <p className="small">Bendras balas</p>
@@ -400,46 +445,50 @@ export function PortalFlow({ token }: { token: string }) {
           </p>
 
           <h3>Trumpas įvertinimas</h3>
-          <form className="grid" onSubmit={submitFeedback}>
-            {feedbackPrompts.map((prompt) => (
-              <div className="feedback-question-card" key={prompt.key}>
-                <p className="feedback-question-title">{prompt.label}</p>
-                <div className="feedback-scale" role="radiogroup" aria-label={prompt.label}>
-                  {feedbackLikert.map((opt) => {
-                    const active = feedback[prompt.key] === opt.value;
-                    return (
-                      <button
-                        type="button"
-                        key={`${prompt.key}-${opt.value}`}
-                        className={`feedback-option ${active ? "active" : ""}`}
-                        onClick={() => {
-                          setFeedback((prev) => ({ ...prev, [prompt.key]: opt.value }));
-                          setFeedbackStatus("idle");
-                        }}
-                      >
-                        {opt.label}
-                      </button>
-                    );
-                  })}
+          {feedbackSubmitted ? (
+            <p className="small">Įvertinimas jau išsaugotas. Ačiū už atsakymus.</p>
+          ) : (
+            <form className="grid" onSubmit={submitFeedback}>
+              {feedbackPrompts.map((prompt) => (
+                <div className="feedback-question-card" key={prompt.key}>
+                  <p className="feedback-question-title">{prompt.label}</p>
+                  <div className="feedback-scale" role="radiogroup" aria-label={prompt.label}>
+                    {feedbackLikert.map((opt) => {
+                      const active = feedback[prompt.key] === opt.value;
+                      return (
+                        <button
+                          type="button"
+                          key={`${prompt.key}-${opt.value}`}
+                          className={`feedback-option ${active ? "active" : ""}`}
+                          onClick={() => {
+                            setFeedback((prev) => ({ ...prev, [prompt.key]: opt.value }));
+                            setFeedbackStatus("idle");
+                          }}
+                        >
+                          {opt.label}
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
 
-            <label>
-              Komentaras (optional)
-              <textarea
-                name="comment"
-                rows={3}
-                value={feedback.comment}
-                onChange={(e) => {
-                  setFeedback((prev) => ({ ...prev, comment: e.target.value }));
-                  setFeedbackStatus("idle");
-                }}
-              />
-            </label>
-            <button type="submit">Išsaugoti įvertinimą</button>
-            {feedbackStatus === "saved" ? <p className="small">Įvertinimas išsaugotas.</p> : null}
-          </form>
+              <label>
+                Komentaras (optional)
+                <textarea
+                  name="comment"
+                  rows={3}
+                  value={feedback.comment}
+                  onChange={(e) => {
+                    setFeedback((prev) => ({ ...prev, comment: e.target.value }));
+                    setFeedbackStatus("idle");
+                  }}
+                />
+              </label>
+              <button type="submit">Išsaugoti įvertinimą</button>
+              {feedbackStatus === "saved" ? <p className="small">Įvertinimas išsaugotas.</p> : null}
+            </form>
+          )}
 
           <div style={{ marginTop: 16 }}>
             <button className="secondary" onClick={deleteData}>

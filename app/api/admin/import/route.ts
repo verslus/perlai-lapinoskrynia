@@ -17,6 +17,7 @@ const importSchema = z.object({
   slug: z.string().min(2),
   version: z.number().int().min(1),
   language: z.string().min(2),
+  category: z.string().min(2).max(40).optional(),
   title: z.string().min(2),
   description: z.string().min(2),
   questions: z.array(questionSchema).min(1)
@@ -56,7 +57,10 @@ export async function POST(req: Request) {
         language: data.language,
         title: data.title,
         description: data.description,
-        scoringConfigJson: { importedAt: new Date().toISOString() },
+        scoringConfigJson: {
+          importedAt: new Date().toISOString(),
+          category: data.category ?? "OTHER"
+        },
         questions: {
           createMany: {
             data: data.questions.map((q) => ({

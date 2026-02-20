@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import { getSession } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { getCategoryLabel, resolveTestCategory } from "@/lib/test-categories";
 import { ConsultantDashboard } from "@/components/ConsultantDashboard";
 import { LogoutButton } from "@/components/LogoutButton";
 
@@ -57,19 +58,25 @@ export default async function ConsultantPage() {
       </div>
 
       <ConsultantDashboard
-        tests={tests.map((t) => ({
-          id: t.id,
-          label: `${t.title} | ${t.language} v${t.version}`,
-          description: t.description,
-          consultantInstruction:
-            typeof t.scoringConfigJson === "object" &&
-            t.scoringConfigJson &&
-            "instructions" in t.scoringConfigJson &&
-            typeof (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ===
-              "string"
-              ? (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ?? null
-              : null
-        }))}
+        tests={tests.map((t) => {
+          const category = resolveTestCategory(t.scoringConfigJson);
+          return {
+            id: t.id,
+            label: `${t.title} | ${t.language} v${t.version}`,
+            language: t.language,
+            category,
+            categoryLabel: getCategoryLabel(category),
+            description: t.description,
+            consultantInstruction:
+              typeof t.scoringConfigJson === "object" &&
+              t.scoringConfigJson &&
+              "instructions" in t.scoringConfigJson &&
+              typeof (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ===
+                "string"
+                ? (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ?? null
+                : null
+          };
+        })}
         rows={rows}
       />
     </main>

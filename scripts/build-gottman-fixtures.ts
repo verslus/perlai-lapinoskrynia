@@ -155,22 +155,22 @@ function canonicalQuestionnaireKey(source: SourceName, questionnaireId: string, 
   if (source === "csv_primary") {
     const map: Record<string, string> = {
       lw: "locke-wallace",
-      "srh-lm": "srh-love-maps",
-      "srh-fa": "srh-fondness-admiration",
-      "srh-tt": "srh-turning-towards-away",
-      "srh-nso": "srh-negative-sentiment-override",
-      "srh-hs": "srh-harsh-startup",
-      "srh-ai": "srh-accepting-influence",
-      "srh-ra": "srh-repair-attempts",
-      "srh-co": "srh-compromise",
-      "srh-gp": "srh-gridlock-perpetual-issues",
-      "srh-4h": "srh-four-horsemen",
-      "srh-fl": "srh-flooding",
-      "srh-ed": "srh-emotional-disengagement-loneliness",
-      "srh-srp": "srh-sex-romance-passion",
-      "srh-tr": "srh-trust",
-      "srh-cm": "srh-commitment",
-      "srh-sm": "srh-shared-meanings",
+      "srh-lm": "srh-house",
+      "srh-fa": "srh-house",
+      "srh-tt": "srh-house",
+      "srh-nso": "srh-house",
+      "srh-hs": "srh-house",
+      "srh-ai": "srh-house",
+      "srh-ra": "srh-house",
+      "srh-co": "srh-house",
+      "srh-gp": "srh-house",
+      "srh-4h": "srh-house",
+      "srh-fl": "srh-house",
+      "srh-ed": "srh-house",
+      "srh-srp": "srh-house",
+      "srh-tr": "srh-house",
+      "srh-cm": "srh-house",
+      "srh-sm": "srh-house",
       eaq: "eaq",
       ctrl: "control",
       fear: "fear",
@@ -188,22 +188,22 @@ function canonicalQuestionnaireKey(source: SourceName, questionnaireId: string, 
     const map: Record<string, string> = {
       "01": "locke-wallace",
       "1": "locke-wallace",
-      "02a": "srh-love-maps",
-      "02b": "srh-fondness-admiration",
-      "02c": "srh-turning-towards-away",
-      "02d": "srh-negative-sentiment-override",
-      "02e": "srh-harsh-startup",
-      "02f": "srh-accepting-influence",
-      "02g": "srh-repair-attempts",
-      "02h": "srh-compromise",
-      "02i": "srh-gridlock-perpetual-issues",
-      "02j": "srh-four-horsemen",
-      "02k": "srh-flooding",
-      "02l": "srh-emotional-disengagement-loneliness",
-      "02m": "srh-sex-romance-passion",
-      "02n": "srh-trust",
-      "02o": "srh-commitment",
-      "02p": "srh-shared-meanings",
+      "02a": "srh-house",
+      "02b": "srh-house",
+      "02c": "srh-house",
+      "02d": "srh-house",
+      "02e": "srh-house",
+      "02f": "srh-house",
+      "02g": "srh-house",
+      "02h": "srh-house",
+      "02i": "srh-house",
+      "02j": "srh-house",
+      "02k": "srh-house",
+      "02l": "srh-house",
+      "02m": "srh-house",
+      "02n": "srh-house",
+      "02o": "srh-house",
+      "02p": "srh-house",
       "3": "19areas-master",
       "04a": "detour-chaos",
       "04b": "detour-meta-emotions",
@@ -359,6 +359,58 @@ function groupQuestionnaires(rows: RowNorm[]): Map<string, QuestionnaireData> {
   return grouped;
 }
 
+function normalizeForCanonicalKey(data: QuestionnaireData, canonicalKey: string): QuestionnaireData {
+  if (canonicalKey !== "srh-house") return data;
+
+  return {
+    ...data,
+    questionnaireId: "srh-house",
+    names: {
+      en: "Sound Relationship House Questionnaires",
+      lt: "Tvirtų santykių namo klausimynai",
+      ua: "Опитувальники Будинку здорових стосунків"
+    },
+    descriptions: {
+      en:
+        data.descriptions.en ||
+        "Combined Sound Relationship House questionnaire pack (all SRH subscales in one assessment).",
+      lt:
+        data.descriptions.lt ||
+        "Sujungtas Tvirtų santykių namo klausimynų paketas (visos SRH subskalės viename vertinime).",
+      ua:
+        data.descriptions.ua ||
+        "Об'єднаний пакет опитувальників Будинку здорових стосунків (усі підшкали SRH в одному тесті)."
+    },
+    items: data.items.map((item) => ({
+      ...item,
+      itemNumberRaw: `${data.questionnaireId}-${item.itemNumberRaw}`
+    }))
+  };
+}
+
+function mergeQuestionnaireData(base: QuestionnaireData, incoming: QuestionnaireData): QuestionnaireData {
+  return {
+    ...base,
+    names: {
+      en: base.names.en || incoming.names.en,
+      lt: base.names.lt || incoming.names.lt,
+      ua: base.names.ua || incoming.names.ua
+    },
+    descriptions: {
+      en: base.descriptions.en || incoming.descriptions.en,
+      lt: base.descriptions.lt || incoming.descriptions.lt,
+      ua: base.descriptions.ua || incoming.descriptions.ua
+    },
+    responseFormats: {
+      en: base.responseFormats.en || incoming.responseFormats.en,
+      lt: base.responseFormats.lt || incoming.responseFormats.lt,
+      ua: base.responseFormats.ua || incoming.responseFormats.ua
+    },
+    itemResponseTypeRaw: base.itemResponseTypeRaw || incoming.itemResponseTypeRaw,
+    items: [...base.items, ...incoming.items].sort((a, b) => compareItemOrder(a.itemNumberRaw, b.itemNumberRaw))
+  };
+}
+
 function resolvePdfFamily(questionnaireId: string, nameEn: string): string {
   const id = questionnaireId.toLowerCase();
   const name = nameEn.toLowerCase();
@@ -443,6 +495,9 @@ function optionsForKind(kind: string, locale: Locale): Array<{ value: number; la
 }
 
 function detectQuestionnaireSignature(data: QuestionnaireData): string {
+  if (data.questionnaireId === "srh-house") {
+    return data.items.map((item) => canonicalText(item.text.en)).join("|");
+  }
   return data.items
     .map((item) => `${item.itemNumberRaw}:${canonicalText(item.text.en)}`)
     .join("|");
@@ -499,8 +554,11 @@ function enrich(data: QuestionnaireData, fallback?: QuestionnaireData): Question
     itemResponseTypeRaw: data.itemResponseTypeRaw || fallback?.itemResponseTypeRaw || ""
   };
 
-  merged.items = data.items.map((item) => {
-    const fb = fallback?.items.find((x) => x.itemNumberRaw === item.itemNumberRaw);
+  merged.items = data.items.map((item, index) => {
+    const fb =
+      data.questionnaireId === "srh-house"
+        ? fallback?.items[index]
+        : fallback?.items.find((x) => x.itemNumberRaw === item.itemNumberRaw);
     return {
       ...item,
       text: {
@@ -568,6 +626,7 @@ function buildFixturesForVersion(args: {
       description,
       scoringConfigJson: {
         type: "gottman_generic_v1",
+        category: "GOTTMAN",
         source: {
           csvSource: merged.source,
           questionnaireId: merged.questionnaireId,
@@ -603,10 +662,16 @@ async function main() {
 
   for (const q of primaryGrouped.values()) {
     if (q.questionnaireId.toLowerCase().startsWith("19a-")) continue;
-    primaryByName.set(canonicalQuestionnaireKey("csv_primary", q.questionnaireId, q.names.en), q);
+    const key = canonicalQuestionnaireKey("csv_primary", q.questionnaireId, q.names.en);
+    const normalized = normalizeForCanonicalKey(q, key);
+    const existing = primaryByName.get(key);
+    primaryByName.set(key, existing ? mergeQuestionnaireData(existing, normalized) : normalized);
   }
   for (const q of secondaryGrouped.values()) {
-    secondaryByName.set(canonicalQuestionnaireKey("csv_secondary", q.questionnaireId, q.names.en), q);
+    const key = canonicalQuestionnaireKey("csv_secondary", q.questionnaireId, q.names.en);
+    const normalized = normalizeForCanonicalKey(q, key);
+    const existing = secondaryByName.get(key);
+    secondaryByName.set(key, existing ? mergeQuestionnaireData(existing, normalized) : normalized);
   }
 
   const allKeys = new Set([...primaryByName.keys(), ...secondaryByName.keys()]);
