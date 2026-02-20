@@ -602,6 +602,7 @@ async function main() {
   const secondaryByName = new Map<string, QuestionnaireData>();
 
   for (const q of primaryGrouped.values()) {
+    if (q.questionnaireId.toLowerCase().startsWith("19a-")) continue;
     primaryByName.set(canonicalQuestionnaireKey("csv_primary", q.questionnaireId, q.names.en), q);
   }
   for (const q of secondaryGrouped.values()) {

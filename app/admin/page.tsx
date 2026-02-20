@@ -9,7 +9,7 @@ export default async function AdminPage() {
   if (session.role !== "ADMIN") redirect("/consultant");
 
   const [testsCount, attemptsCount, completedCount, testVersions] = await Promise.all([
-    prisma.testVersion.count(),
+    prisma.testVersion.count({ where: { isActive: true } }),
     prisma.attempt.count({ where: { deletedAt: null } }),
     prisma.attempt.count({ where: { status: { in: ["FINISHED", "REPORT_VIEWED"] }, deletedAt: null } }),
     prisma.testVersion.findMany({

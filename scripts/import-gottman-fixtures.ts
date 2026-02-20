@@ -26,6 +26,7 @@ async function loadFixtures(): Promise<Fixture[]> {
 }
 
 async function upsertFixture(fixture: Fixture) {
+  const isActive = fixture.version === 1;
   const test = await prisma.test.upsert({
     where: { slug: fixture.slug },
     update: {},
@@ -50,7 +51,7 @@ async function upsertFixture(fixture: Fixture) {
         title: fixture.title,
         description: fixture.description,
         scoringConfigJson: fixture.scoringConfigJson as object,
-        isActive: true,
+        isActive,
         questions: {
           createMany: {
             data: fixture.questions.map((q) => ({
@@ -74,7 +75,7 @@ async function upsertFixture(fixture: Fixture) {
       title: fixture.title,
       description: fixture.description,
       scoringConfigJson: fixture.scoringConfigJson as object,
-      isActive: true,
+      isActive,
       questions: {
         createMany: {
           data: fixture.questions.map((q) => ({
