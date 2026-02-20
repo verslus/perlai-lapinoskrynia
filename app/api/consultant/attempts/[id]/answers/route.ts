@@ -94,11 +94,14 @@ export async function GET(req: Request, { params }: { params: Promise<{ id: stri
       { header: true }
     );
 
-    const safeTitle = (attempt.testVersion.title || "test")
-      .replace(/[^\p{L}\p{N}]+/gu, "-")
-      .replace(/-+/g, "-")
-      .replace(/^-|-$/g, "")
-      .toLowerCase();
+    const safeTitle =
+      (attempt.testVersion.title || "test")
+        .normalize("NFKD")
+        .replace(/[^\x00-\x7F]/g, "")
+        .replace(/[^a-zA-Z0-9]+/g, "-")
+        .replace(/-+/g, "-")
+        .replace(/^-|-$/g, "")
+        .toLowerCase() || "test";
 
     return new NextResponse(csv, {
       headers: {
