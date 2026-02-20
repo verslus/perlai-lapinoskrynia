@@ -121,8 +121,18 @@ const PDF_BY_FAMILY: Record<string, { file: string; title: string; instructionEn
   }
 };
 
+function tryFixMojibake(value: string) {
+  // Handles UTF-8 text that was decoded as Latin-1/Windows-1252 (e.g. "ÐÑÑ...")
+  if (!(value.includes("Ð") || value.includes("Ñ") || value.includes("Ã") || value.includes("â"))) {
+    return value;
+  }
+  const fixed = Buffer.from(value, "latin1").toString("utf8");
+  const looksFixed = /[\u0400-\u04FFąčęėįšųūžĄČĘĖĮŠŲŪŽ]/.test(fixed);
+  return looksFixed ? fixed : value;
+}
+
 function normalizeWhitespace(value: string) {
-  return value.replace(/\s+/g, " ").trim();
+  return tryFixMojibake(value).replace(/\s+/g, " ").trim();
 }
 
 function slugify(value: string) {

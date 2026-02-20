@@ -448,7 +448,7 @@
     "version": 1,
     "language": "ua",
     "title": "19 Areas Checklist - 1. Emotional Connection",
-    "description": "ÐÐ¾Ð½ÑÑÐ¾Ð»ÑÐ½Ð¸Ð¹ ÑÐ¿Ð¸ÑÐ¾Ðº 19 ÑÑÐµÑ. ÐÑÑÐ½ÑÑ ÑÑÐ°Ð½ 19 Ð½Ð°Ð¹Ð²Ð°Ð¶Ð»Ð¸Ð²ÑÑÐ¸Ñ ÑÑÐµÑ ÑÑÐ¾ÑÑÐ½ÐºÑÐ², ÑÐ´ÐµÐ½ÑÐ¸ÑÑÐºÑÑÑÐ¸ Ð²Ð¸ÑÑÑÑÐ²Ð°Ð½Ñ ÑÐ° Ð¿Ð¾ÑÑÑÐ¹Ð½Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸.",
+    "description": "Контрольний список 19 сфер. Оцінює стан 19 найважливіших сфер стосунків, ідентифікуючи вирішувані та постійні проблеми.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -629,37 +629,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÑÐ¾ÑÑÐ¾ ÑÐ¾Ð·Ð¼Ð¾Ð²Ð° Ð¾Ð´Ð½Ðµ Ð· Ð¾Ð´Ð½Ð¸Ð¼",
+        "text": "Просто розмова одне з одним",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ¼Ð¾ÑÑÐ¹Ð½Ð¸Ð¹ ÐºÐ¾Ð½ÑÐ°ÐºÑ Ð¾Ð´Ð½Ðµ Ð· Ð¾Ð´Ð½Ð¸Ð¼",
+        "text": "Емоційний контакт одне з одним",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÑÐ´ÑÑÑÑÑ ÑÐ¾ ÑÐµÐ±Ðµ ÑÐ¿ÑÐ¸Ð¹Ð¼Ð°ÑÑÑ ÑÐº Ð½Ð°Ð»ÐµÐ¶Ð½Ðµ",
+        "text": "Відчуття що тебе сприймають як належне",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐµ Ð²ÑÐ´ÑÑÐ²Ð°Ñ ÑÐ¾ Ð¿Ð°ÑÑÐ½ÐµÑ Ð¼ÐµÐ½Ðµ Ð·Ð°ÑÐ°Ð· Ð´Ð¾Ð±ÑÐµ Ð·Ð½Ð°Ñ",
+        "text": "Не відчуваю що партнер мене зараз добре знає",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ (Ð°Ð±Ð¾ Ñ) ÐµÐ¼Ð¾ÑÑÐ¹Ð½Ð¾ Ð²ÑÐ´ÑÑÐ¾ÑÐ¾Ð½ÐµÐ½Ð¸Ð¹(-Ð°)",
+        "text": "Партнер (або я) емоційно відсторонений(-а)",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÑÐ¾Ð²ÐµÐ´ÐµÐ½Ð½Ñ ÑÐ°ÑÑ ÑÐ°Ð·Ð¾Ð¼",
+        "text": "Проведення часу разом",
         "dimension": "gottman-19-areas-checklist-1-emotional-connection",
         "isReverse": false
       }
@@ -1295,37 +1295,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ¾Ð¿Ð¾Ð¼Ð¾Ð³Ð° Ð¾Ð´Ð½Ðµ Ð¾Ð´Ð½Ð¾Ð¼Ñ Ð·Ð¼ÐµÐ½ÑÑÐ²Ð°ÑÐ¸ ÑÐ¾Ð´ÐµÐ½Ð½Ð¸Ð¹ ÑÑÑÐµÑ",
+        "text": "Допомога одне одному зменшувати щоденний стрес",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð Ð¾Ð·Ð¼Ð¾Ð²Ð° Ð¿ÑÐ¾ ÑÑ ÑÑÑÐµÑÐ¸ ÑÐ°Ð·Ð¾Ð¼",
+        "text": "Розмова про ці стреси разом",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "Ð Ð¾Ð·Ð¼Ð¾Ð²Ð° Ð¿ÑÐ¾ ÑÑÑÐµÑ ÐºÐ¾ÑÐ¸ÑÐ½Ð¸Ð¼ ÑÐ¸Ð½Ð¾Ð¼",
+        "text": "Розмова про стрес корисним чином",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ ÑÐ»ÑÑÐ°Ñ Ð· ÑÐ¾Ð·ÑÐ¼ÑÐ½Ð½ÑÐ¼ Ð¿ÑÐ¾ Ð¼Ð¾Ñ ÑÑÑÐµÑÐ¸ ÑÐ° ÑÑÑÐ±Ð¾ÑÐ¸",
+        "text": "Партнер слухає з розумінням про мої стреси та турботи",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð·Ð»Ð¸Ð²Ð°Ñ ÑÐ¾Ð±Ð¾ÑÐ¸Ð¹ ÑÐ¸ ÑÐ½ÑÐ¸Ð¹ ÑÑÑÐµÑ Ð½Ð° Ð¼ÐµÐ½Ðµ",
+        "text": "Партнер зливає робочий чи інший стрес на мене",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð·Ð»Ð¸Ð²Ð°Ñ ÑÑÑÐµÑ Ð½Ð° ÑÐ½ÑÐ¸Ñ Ñ Ð½Ð°ÑÐ¾Ð¼Ñ Ð¶Ð¸ÑÑÑ",
+        "text": "Партнер зливає стрес на інших у нашому житті",
         "dimension": "gottman-19-areas-checklist-2-stress-management",
         "isReverse": false
       }
@@ -1961,37 +1961,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÑÐ¶ Ð½Ð°Ð¼Ð¸ Ð²Ð¸Ð½Ð¸ÐºÐ»Ð¸ Ð²ÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ ÑÐºÑ Ð²ÑÐ´ÑÑÐ²Ð°ÑÑÑÑÑ Ð´ÑÐ¶Ðµ Ð±Ð°Ð·Ð¾Ð²Ð¸Ð¼Ð¸",
+        "text": "Між нами виникли відмінності які відчуваються дуже базовими",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¦Ñ Ð²ÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ Ð·Ð´Ð°ÑÑÑÑÑ Ð½ÐµÑÐ¾Ð·Ð²'ÑÐ·Ð½Ð¸Ð¼Ð¸",
+        "text": "Ці відмінності здаються нерозв'язними",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ Ð¶Ð¸Ð²ÐµÐ¼Ð¾ Ð´ÐµÐ½Ñ Ñ Ð´ÐµÐ½Ñ Ð· Ð±Ð¾Ð»ÐµÐ¼",
+        "text": "Ми живемо день у день з болем",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ°ÑÑ Ð¿Ð¾Ð·Ð¸ÑÑÑ ÑÑÐ°ÑÑÑ Ð²ÑÐµ Ð±ÑÐ»ÑÑ Ð½ÐµÐ¿Ð¾ÑÐ¸ÑÐ½Ð¸Ð¼Ð¸",
+        "text": "Наші позиції стають все більш непохитними",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "Ð¡ÑÐ¾Ð¶Ðµ ÑÐ¾ Ñ Ð½ÑÐºÐ¾Ð»Ð¸ Ð½Ðµ Ð¾ÑÑÐ¸Ð¼Ð°Ñ ÑÐµ Ð½Ð° ÑÐ¾ ÑÐ¿Ð¾Ð´ÑÐ²Ð°ÑÑÑ",
+        "text": "Схоже що я ніколи не отримаю те на що сподіваюся",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "Ð¯ Ð´ÑÐ¶Ðµ ÑÑÑÐ±ÑÑÑÑ ÑÐ¾ ÑÑ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸ Ð¼Ð¾Ð¶ÑÑÑ Ð¿Ð¾ÑÐºÐ¾Ð´Ð¸ÑÐ¸ Ð½Ð°ÑÑ ÑÑÐ¾ÑÑÐ½ÐºÐ¸",
+        "text": "Я дуже турбуюся що ці проблеми можуть пошкодити наші стосунки",
         "dimension": "gottman-19-areas-checklist-3-handling-issues-gridlock",
         "isReverse": false
       }
@@ -2627,37 +2627,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð¿ÐµÑÐµÑÑÐ°Ð²(-Ð»Ð°) Ð±ÑÑÐ¸ Ð½ÑÐ¶Ð½Ð¸Ð¼(-Ð¾Ñ) Ð½Ð° ÑÐ»Ð¾Ð²Ð°Ñ",
+        "text": "Партнер перестав(-ла) бути ніжним(-ою) на словах",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ ÑÑÐ´ÑÐµ Ð²Ð¸ÑÐ°Ð¶Ð°Ñ Ð»ÑÐ±Ð¾Ð² ÑÐ¸ Ð·Ð°ÑÐ¾Ð¿Ð»ÐµÐ½Ð½Ñ",
+        "text": "Партнер рідше виражає любов чи захоплення",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ ÑÑÐ´ÐºÐ¾ ÑÐ¾ÑÐºÐ°ÑÐ¼Ð¾ÑÑ Ð¾Ð´Ð½Ðµ Ð¾Ð´Ð½Ð¾Ð³Ð¾",
+        "text": "Ми рідко торкаємося одне одного",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ (Ð°Ð±Ð¾ Ñ) Ð¿ÐµÑÐµÑÑÐ°Ð²(-Ð»Ð°) Ð²ÑÐ´ÑÑÐ²Ð°ÑÐ¸ ÑÐ¾Ð¼Ð°Ð½ÑÐ¸ÐºÑ",
+        "text": "Партнер (або я) перестав(-ла) відчувати романтику",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÐ¸ ÑÑÐ´ÐºÐ¾ Ð¾Ð±ÑÐ¹Ð¼Ð°ÑÐ¼Ð¾ÑÑ",
+        "text": "Ми рідко обіймаємося",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¼Ð°Ð»Ð¾ Ð½ÑÐ¶Ð½Ð¸Ñ ÑÐ¸ Ð¿ÑÐ¸ÑÑÑÐ°ÑÐ½Ð¸Ñ Ð¼Ð¾Ð¼ÐµÐ½ÑÑÐ²",
+        "text": "Ми маємо мало ніжних чи пристрасних моментів",
         "dimension": "gottman-19-areas-checklist-4-romance-and-passion",
         "isReverse": false
       }
@@ -3293,37 +3293,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð§Ð°ÑÑÐ¾ÑÐ° ÑÐµÐºÑÑ",
+        "text": "Частота сексу",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ°Ð´Ð¾Ð²Ð¾Ð»ÐµÐ½Ð½Ñ ÑÐºÐµ Ñ (Ð°Ð±Ð¾ Ð¿Ð°ÑÑÐ½ÐµÑ) Ð¾ÑÑÐ¸Ð¼ÑÑ(-Ñ) Ð²ÑÐ´ ÑÐµÐºÑÑ",
+        "text": "Задоволення яке я (або партнер) отримую(-є) від сексу",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¾Ð¶Ð»Ð¸Ð²ÑÑÑÑ Ð³Ð¾Ð²Ð¾ÑÐ¸ÑÐ¸ Ð¿ÑÐ¾ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸",
+        "text": "Можливість говорити про сексуальні проблеми",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ¸ Ð¾Ð±Ð¾Ñ ÑÐ¾ÑÐµÐ¼Ð¾ ÑÑÐ·Ð½Ð¸Ñ ÑÐµÑÐµÐ¹ Ñ ÑÐµÐºÑÑ",
+        "text": "Ми обоє хочемо різних речей у сексі",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÑÐ¾Ð±Ð»ÐµÐ¼Ð¸ Ð±Ð°Ð¶Ð°Ð½Ð½Ñ",
+        "text": "Проблеми бажання",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÑÐ»ÑÐºÑÑÑÑ Ð»ÑÐ±Ð¾Ð²Ñ Ð² Ð½Ð°ÑÐ¾Ð¼Ñ ÐºÐ¾ÑÐ°Ð½Ð½Ñ",
+        "text": "Кількість любові в нашому коханні",
         "dimension": "gottman-19-areas-checklist-5-sex-life",
         "isReverse": false
       }
@@ -3779,25 +3779,25 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð´ÑÐ¶Ðµ ÑÑÐ·Ð½Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° ÑÐµ ÑÐº Ð²Ð¸ÑÑÑÑÐ²Ð°ÑÐ¸ ÑÐ¿ÑÐ°Ð²Ð¸",
+        "text": "Ми маємо дуже різні погляди на те як вирішувати справи",
         "dimension": "gottman-19-areas-checklist-6-important-life-events",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¦Ñ Ð¿Ð¾Ð´ÑÑ Ð¿ÑÐ¸Ð·Ð²ÐµÐ»Ð° Ð´Ð¾ ÑÐ¾Ð³Ð¾ ÑÐ¾ Ð¿Ð°ÑÑÐ½ÐµÑ Ð´ÑÐ¶Ðµ Ð²ÑÐ´ÑÑÐ¾ÑÐ¾Ð½Ð¸Ð²ÑÑ",
+        "text": "Ця подія призвела до того що партнер дуже відсторонився",
         "dimension": "gottman-19-areas-checklist-6-important-life-events",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "Ð¦Ñ Ð¿Ð¾Ð´ÑÑ Ð·ÑÐ¾Ð±Ð¸Ð»Ð° Ð½Ð°Ñ Ð¾Ð±Ð¾Ñ Ð´ÑÐ°ÑÑÐ²Ð»Ð¸Ð²Ð¸Ð¼Ð¸",
+        "text": "Ця подія зробила нас обох дратівливими",
         "dimension": "gottman-19-areas-checklist-6-important-life-events",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "Ð¦Ñ Ð¿Ð¾Ð´ÑÑ Ð¿ÑÐ¸Ð·Ð²ÐµÐ»Ð° Ð´Ð¾ Ð±Ð°Ð³Ð°ÑÑÐ¾Ñ ÑÐ²Ð°ÑÐ¾Ðº",
+        "text": "Ця подія призвела до багатьох сварок",
         "dimension": "gottman-19-areas-checklist-6-important-life-events",
         "isReverse": false
       }
@@ -4163,19 +4163,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð´ÑÐ¶Ðµ ÑÑÐ·Ð½Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° ÑÑÐ»Ñ Ð´Ð»Ñ Ð´ÑÑÐµÐ¹",
+        "text": "Ми маємо дуже різні погляди на цілі для дітей",
         "dimension": "gottman-19-areas-checklist-7-children-issues",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ ÑÑÐ·Ð½Ñ Ð¿Ð¾Ð·Ð¸ÑÑÑ ÑÐ¾Ð´Ð¾ ÑÐ¾Ð³Ð¾ Ð·Ð° ÑÐ¾ Ð´Ð¸ÑÑÐ¸Ð¿Ð»ÑÐ½ÑÐ²Ð°ÑÐ¸ Ð´ÑÑÐµÐ¹",
+        "text": "Ми маємо різні позиції щодо того за що дисциплінувати дітей",
         "dimension": "gottman-19-areas-checklist-7-children-issues",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ ÑÑÐ·Ð½Ñ Ð¿Ð¾Ð·Ð¸ÑÑÑ ÑÐ¾Ð´Ð¾ ÑÐ¾Ð³Ð¾ ÑÐº Ð´Ð¸ÑÑÐ¸Ð¿Ð»ÑÐ½ÑÐ²Ð°ÑÐ¸ Ð´ÑÑÐµÐ¹",
+        "text": "Ми маємо різні позиції щодо того як дисциплінувати дітей",
         "dimension": "gottman-19-areas-checklist-7-children-issues",
         "isReverse": false
       }
@@ -4451,13 +4451,13 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÑÐ´ÑÑÐ²Ð°Ñ ÑÐµÐ±Ðµ Ð½ÐµÐ¿ÑÐ¸Ð¹Ð½ÑÑÐ¸Ð¼(-Ð¾Ñ) ÑÑÐ¼'ÑÑ Ð¿Ð°ÑÑÐ½ÐµÑÐ°",
+        "text": "Відчуваю себе неприйнятим(-ою) сім'єю партнера",
         "dimension": "gottman-19-areas-checklist-8-in-laws-relatives",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ½Ð¾Ð´Ñ Ñ Ð·Ð°Ð¼Ð¸ÑÐ»ÑÑÑÑ Ð´Ð¾ ÑÐºÐ¾Ñ ÑÑÐ¼'Ñ Ð½Ð°Ð»ÐµÐ¶Ð¸ÑÑ Ð¼ÑÐ¹ Ð¿Ð°ÑÑÐ½ÐµÑ",
+        "text": "Іноді я замислююся до якої сім'ї належить мій партнер",
         "dimension": "gottman-19-areas-checklist-8-in-laws-relatives",
         "isReverse": false
       }
@@ -4733,13 +4733,13 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð¦Ñ ÑÑÐµÑÐ° Ñ Ð´Ð¶ÐµÑÐµÐ»Ð¾Ð¼ Ð²ÐµÐ»Ð¸ÐºÐ¾Ð³Ð¾ Ð±Ð¾Ð»Ñ",
+        "text": "Ця сфера є джерелом великого болю",
         "dimension": "gottman-19-areas-checklist-9-jealousy-attraction",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¦Ñ ÑÑÐµÑÐ° ÑÑÐ²Ð¾ÑÑÑ Ð½ÐµÐ²Ð¿ÐµÐ²Ð½ÐµÐ½ÑÑÑÑ",
+        "text": "Ця сфера створює невпевненість",
         "dimension": "gottman-19-areas-checklist-9-jealousy-attraction",
         "isReverse": false
       }
@@ -5105,19 +5105,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð¦Ðµ Ñ Ð´Ð¶ÐµÑÐµÐ»Ð¾Ð¼ Ð²ÐµÐ»Ð¸ÐºÐ¾Ð³Ð¾ Ð±Ð¾Ð»Ñ",
+        "text": "Це є джерелом великого болю",
         "dimension": "gottman-19-areas-checklist-10-extra-relationship-affair",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¦Ðµ ÑÑÐ²Ð¾ÑÐ¸Ð»Ð¾ Ð½ÐµÐ²Ð¿ÐµÐ²Ð½ÐµÐ½ÑÑÑÑ",
+        "text": "Це створило невпевненість",
         "dimension": "gottman-19-areas-checklist-10-extra-relationship-affair",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "Ð¯ Ð½Ðµ Ð¼Ð¾Ð¶Ñ Ð²Ð¿Ð¾ÑÐ°ÑÐ¸ÑÑ Ð· Ð¾Ð±Ð¼Ð°Ð½Ð¾Ð¼ ÑÐ° Ð±ÑÐµÑÐ½ÐµÑ",
+        "text": "Я не можу впоратися з обманом та брехнею",
         "dimension": "gottman-19-areas-checklist-10-extra-relationship-affair",
         "isReverse": false
       }
@@ -5663,31 +5663,31 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ°ÑÐ°Ð· Ð±ÑÐ»ÑÑÐµ ÑÐ²Ð°ÑÐ¾Ðº",
+        "text": "Зараз більше сварок",
         "dimension": "gottman-19-areas-checklist-11-conflict-resolution",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¡Ð²Ð°ÑÐºÐ¸ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑÑÑ Ð½ÑÐ±Ð¸ Ð· Ð½ÑÑÐ¾Ð³Ð¾",
+        "text": "Сварки виникають ніби з нічого",
         "dimension": "gottman-19-areas-checklist-11-conflict-resolution",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ½ÑÐ² ÑÐ° Ð´ÑÐ°ÑÑÐ²Ð»Ð¸Ð²ÑÑÑÑ Ð¿ÑÐ¾Ð½Ð¸ÐºÐ»Ð¸ Ð² Ð½Ð°ÑÑ ÑÑÐ¾ÑÑÐ½ÐºÐ¸",
+        "text": "Гнів та дратівливість проникли в наші стосунки",
         "dimension": "gottman-19-areas-checklist-11-conflict-resolution",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÑÑÐ°Ð½Ð½ÑÐ¼ ÑÐ°ÑÐ¾Ð¼ Ñ Ð½Ðµ Ð²ÑÐ´ÑÑÐ²Ð°Ñ Ð¿Ð¾Ð²Ð°Ð³Ð¸",
+        "text": "Останнім часом я не відчуваю поваги",
         "dimension": "gottman-19-areas-checklist-11-conflict-resolution",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "Ð¯ Ð²ÑÐ´ÑÑÐ²Ð°Ñ ÐºÑÐ¸ÑÐ¸ÐºÑ",
+        "text": "Я відчуваю критику",
         "dimension": "gottman-19-areas-checklist-11-conflict-resolution",
         "isReverse": false
       }
@@ -6053,19 +6053,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ¸Ð½Ð¸ÐºÐ»Ð¸ Ð²ÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ Ð² Ð¶Ð¸ÑÑÑÐ²Ð¸Ñ ÑÑÐ»ÑÑ",
+        "text": "Виникли відмінності в життєвих цілях",
         "dimension": "gottman-19-areas-checklist-12-values-and-goals",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ¸Ð½Ð¸ÐºÐ»Ð¸ Ð²ÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ ÑÐ¾Ð´Ð¾ Ð²Ð°Ð¶Ð»Ð¸Ð²Ð¸Ñ Ð¿ÐµÑÐµÐºÐ¾Ð½Ð°Ð½Ñ",
+        "text": "Виникли відмінності щодо важливих переконань",
         "dimension": "gottman-19-areas-checklist-12-values-and-goals",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ ÑÐ¾Ð·Ð²Ð¸Ð²Ð°ÑÐ¼Ð¾ÑÑ Ð² ÑÑÐ·Ð½Ð¸Ñ Ð½Ð°Ð¿ÑÑÐ¼ÐºÐ°Ñ",
+        "text": "Ми розвиваємося в різних напрямках",
         "dimension": "gottman-19-areas-checklist-12-values-and-goals",
         "isReverse": false
       }
@@ -6341,13 +6341,13 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÑÐ¶ Ð½Ð°Ð¼Ð¸ Ð±ÑÐ»Ð¾ ÑÑÐ·Ð¸ÑÐ½Ðµ Ð½Ð°ÑÐ¸Ð»ÑÑÑÐ²Ð¾",
+        "text": "Між нами було фізичне насильство",
         "dimension": "gottman-19-areas-checklist-13-hard-events",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð° Ð· Ð°Ð»ÐºÐ¾Ð³Ð¾Ð»ÐµÐ¼ ÑÐ¸ Ð½Ð°ÑÐºÐ¾ÑÐ¸ÐºÐ°Ð¼Ð¸",
+        "text": "Є проблема з алкоголем чи наркотиками",
         "dimension": "gottman-19-areas-checklist-13-hard-events",
         "isReverse": false
       }
@@ -6713,19 +6713,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð Ð°Ð½ÑÑÐµ Ð¼Ð¸ Ð±ÑÐ»ÑÑÐµ Ð´ÑÐ»Ð¸Ð»Ð¸ Ð´Ð¾Ð¼Ð°ÑÐ½Ñ ÑÐ¾Ð±Ð¾ÑÑ",
+        "text": "Раніше ми більше ділили домашню роботу",
         "dimension": "gottman-19-areas-checklist-14-teamwork",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¡ÑÐ¾Ð¶Ðµ ÑÐ¾ Ð¼Ð¸ ÑÑÐ³Ð½ÐµÐ¼Ð¾ Ð² Ð¿ÑÐ¾ÑÐ¸Ð»ÐµÐ¶Ð½Ð¸Ñ Ð½Ð°Ð¿ÑÑÐ¼ÐºÐ°Ñ",
+        "text": "Схоже що ми тягнемо в протилежних напрямках",
         "dimension": "gottman-19-areas-checklist-14-teamwork",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð½Ðµ Ð´ÑÐ»Ð¸ÑÑ ÑÐ°ÑÐ½Ñ ÑÐ¾Ð±Ð¾ÑÑ ÑÐ¸ ÑÑÐ¼ÐµÐ¹Ð½Ñ Ð¾Ð±Ð¾Ð²'ÑÐ·ÐºÐ¸",
+        "text": "Партнер не ділить хатню роботу чи сімейні обов'язки",
         "dimension": "gottman-19-areas-checklist-14-teamwork",
         "isReverse": false
       }
@@ -7001,13 +7001,13 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð¯ Ð½Ðµ Ð²ÑÐ´ÑÑÐ²Ð°Ñ Ð²Ð¿Ð»Ð¸Ð²Ñ Ð² ÑÑÑÐµÐ½Ð½ÑÑ ÑÐºÑ Ð¼Ð¸ Ð¿ÑÐ¸Ð¹Ð¼Ð°ÑÐ¼Ð¾",
+        "text": "Я не відчуваю впливу в рішеннях які ми приймаємо",
         "dimension": "gottman-19-areas-checklist-15-power-and-influence",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ ÑÑÐ°Ð²(-Ð»Ð°) Ð±ÑÐ»ÑÑ Ð´Ð¾Ð¼ÑÐ½ÑÑÑÐ¸Ð¼(-Ð¾Ñ)",
+        "text": "Партнер став(-ла) більш домінуючим(-ою)",
         "dimension": "gottman-19-areas-checklist-15-power-and-influence",
         "isReverse": false
       }
@@ -7373,19 +7373,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð¯ Ð°Ð±Ð¾ Ð¿Ð°ÑÑÐ½ÐµÑ Ð¿ÑÐ¾ÑÑÐ¾ Ð½Ðµ Ð·Ð°ÑÐ¾Ð±Ð»ÑÑÐ¼Ð¾ Ð´Ð¾ÑÑÐ°ÑÐ½ÑÐ¾ Ð³ÑÐ¾ÑÐµÐ¹",
+        "text": "Я або партнер просто не заробляємо достатньо грошей",
         "dimension": "gottman-19-areas-checklist-16-finances",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ ÑÐ¾Ð·Ð±ÑÐ¶Ð½Ð¾ÑÑÑ ÑÐ¾Ð´Ð¾ ÑÐ¾Ð³Ð¾ ÑÐº Ð²Ð¸ÑÑÐ°ÑÐ°ÑÐ¸ Ð³ÑÐ¾ÑÑ",
+        "text": "Ми маємо розбіжності щодо того як витрачати гроші",
         "dimension": "gottman-19-areas-checklist-16-finances",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ ÑÑÑÐµÑÑÑÐ¼Ð¾ ÑÐµÑÐµÐ· ÑÑÐ½Ð°Ð½ÑÐ¸",
+        "text": "Ми стресуємо через фінанси",
         "dimension": "gottman-19-areas-checklist-16-finances",
         "isReverse": false
       }
@@ -7751,19 +7751,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ´Ð°ÑÑÑÑÑ ÑÐ¾ Ð¼Ð¸ Ð½Ðµ Ð¼Ð°ÑÐ¼Ð¾ Ð±Ð°Ð³Ð°ÑÐ¾ ÑÐ°ÑÑ Ð´Ð»Ñ ÑÐ¾Ð·Ð²Ð°Ð³",
+        "text": "Здається що ми не маємо багато часу для розваг",
         "dimension": "gottman-19-areas-checklist-17-fun-together",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ¸ Ð½Ð°Ð¼Ð°Ð³Ð°ÑÐ¼Ð¾ÑÑ, Ð°Ð»Ðµ Ð·Ð´Ð°ÑÑÑÑÑ Ð½Ðµ Ð´ÑÐ¶Ðµ Ð½Ð°ÑÐ¾Ð»Ð¾Ð´Ð¶ÑÑÐ¼Ð¾ÑÑ ÑÐ¿ÑÐ»ÑÐ½Ð¾ Ð¿ÑÐ¾Ð²ÐµÐ´ÐµÐ½Ð¸Ð¼ ÑÐ°ÑÐ¾Ð¼",
+        "text": "Ми намагаємося, але здається не дуже насолоджуємося спільно проведеним часом",
         "dimension": "gottman-19-areas-checklist-17-fun-together",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ Ð½Ð°Ð´ÑÐ¾ ÑÑÑÐµÑÑÑÐ¼Ð¾ Ð´Ð»Ñ ÑÐ¾Ð·Ð²Ð°Ð³",
+        "text": "Ми надто стресуємо для розваг",
         "dimension": "gottman-19-areas-checklist-17-fun-together",
         "isReverse": false
       }
@@ -8039,13 +8039,13 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ°Ð»ÑÑÐµÐ½ÑÑÑÑ Ð· Ð´ÑÑÐ·ÑÐ¼Ð¸ ÑÐ° ÑÐ½ÑÐ¸Ð¼Ð¸ Ð»ÑÐ´ÑÐ¼Ð¸ ÑÐ¸ Ð³ÑÑÐ¿Ð°Ð¼Ð¸",
+        "text": "Залученість з друзями та іншими людьми чи групами",
         "dimension": "gottman-19-areas-checklist-18-community",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð¢ÑÑÐ±Ð¾ÑÐ° Ð¿ÑÐ¾ ÑÐ½ÑÑÐ¸ÑÑÑÑÑ ÑÐ¾ Ð±ÑÐ´ÑÑÑÑ Ð³ÑÐ¾Ð¼Ð°Ð´Ð¸",
+        "text": "Турбота про інституції що будують громади",
         "dimension": "gottman-19-areas-checklist-18-community",
         "isReverse": false
       }
@@ -8411,19 +8411,19 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð¡Ð¿ÑÐ»ÑÐ½Ñ Ð¿ÐµÑÐµÐºÐ¾Ð½Ð°Ð½Ð½Ñ",
+        "text": "Спільні переконання",
         "dimension": "gottman-19-areas-checklist-19-spirituality",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ³Ð¾Ð´Ð° ÑÐ¾Ð´Ð¾ ÑÐµÐ»ÑÐ³ÑÐ¹Ð½Ð¸Ñ ÑÐ´ÐµÐ¹ ÑÐ° ÑÑÐ½Ð½Ð¾ÑÑÐµÐ¹",
+        "text": "Згода щодо релігійних ідей та цінностей",
         "dimension": "gottman-19-areas-checklist-19-spirituality",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¾Ð±ÑÐµ ÑÐ¿ÑÐ»ÐºÑÐ²Ð°Ð½Ð½Ñ Ð¿ÑÐ¾ Ð´ÑÑÐ¾Ð²Ð½Ñ ÑÐµÑÑ",
+        "text": "Добре спілкування про духовні речі",
         "dimension": "gottman-19-areas-checklist-19-spirituality",
         "isReverse": false
       }
@@ -12134,7 +12134,7 @@
     "version": 2,
     "language": "ua",
     "title": "Control Questionnaire",
-    "description": "ÐÐ¿Ð¸ÑÑÐ²Ð°Ð»ÑÐ½Ð¸Ðº ÐºÐ¾Ð½ÑÑÐ¾Ð»Ñ. ÐÑÑÐ½ÑÑ ÐºÐ¾Ð½ÑÑÐ¾Ð»ÑÑÑÑ ÑÐ° Ð¿ÑÐ¸Ð¼ÑÑÐ¾Ð²Ñ Ð¿Ð¾Ð²ÐµÐ´ÑÐ½ÐºÑ Ð¿Ð°ÑÑÐ½ÐµÑÐ° Ð·Ð° Ð¾ÑÑÐ°Ð½Ð½Ñ 6 Ð¼ÑÑÑÑÑÐ².",
+    "description": "Опитувальник контролю. Оцінює контролюючу та примусову поведінку партнера за останні 6 місяців.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -12229,43 +12229,43 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ°Ð¼Ð°Ð³Ð°Ð²ÑÑ(-Ð»Ð°ÑÑ) ÐºÐ¾Ð½ÑÑÐ¾Ð»ÑÐ²Ð°ÑÐ¸ ÐºÐ¾Ð¶ÐµÐ½ Ð²Ð°Ñ ÐºÑÐ¾Ðº?",
+        "text": "Намагався(-лася) контролювати кожен ваш крок?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð£ÑÑÐ¸Ð¼ÑÐ²Ð°Ð²(-Ð»Ð°) Ð³ÑÐ¾ÑÑ, Ð·Ð¼ÑÑÑÐ²Ð°Ð²(-Ð»Ð°) Ð²Ð°Ñ Ð¿ÑÐ¾ÑÐ¸ÑÐ¸ Ð³ÑÐ¾ÑÐµÐ¹ Ð°Ð±Ð¾ Ð·Ð°Ð±Ð¸ÑÐ°Ð²(-Ð»Ð°) Ð²Ð°ÑÑ Ð³ÑÐ¾ÑÑ?",
+        "text": "Утримував(-ла) гроші, змушував(-ла) вас просити грошей або забирав(-ла) ваші гроші?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¾Ð³ÑÐ¾Ð¶ÑÐ²Ð°Ð²(-Ð»Ð°) Ð²Ð°Ñ Ð²Ð±Ð¸ÑÐ¸?",
+        "text": "Погрожував(-ла) вас вбити?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ¾Ð³ÑÐ¾Ð¶ÑÐ²Ð°Ð²(-Ð»Ð°) ÑÐºÑÐ¸Ð²Ð´Ð¸ÑÐ¸ Ð²Ð°ÑÑ ÑÑÐ¼'Ñ, Ð´ÑÑÐ·ÑÐ² ÑÐ¸ Ð´Ð¾Ð¼Ð°ÑÐ½ÑÑ ÑÐ²Ð°ÑÐ¸Ð½?",
+        "text": "Погрожував(-ла) скривдити вашу сім'ю, друзів чи домашніх тварин?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÑÐ´Ð¼Ð¾Ð²Ð»ÑÐ²ÑÑ(-Ð»Ð°ÑÑ) Ð±ÑÐ°ÑÐ¸ Ð²ÑÐ´Ð¿Ð¾Ð²ÑÐ´Ð°Ð»ÑÐ½ÑÑÑÑ Ð·Ð° Ð½Ð°ÑÐ¸Ð»ÑÐ½Ð¸ÑÑÐºÑ Ð¿Ð¾Ð²ÐµÐ´ÑÐ½ÐºÑ, Ð¿ÐµÑÐµÐºÐ»Ð°Ð´Ð°ÑÑÐ¸ Ð²Ð¸Ð½Ñ Ð½Ð° Ð²Ð°Ñ?",
+        "text": "Відмовлявся(-лася) брати відповідальність за насильницьку поведінку, перекладаючи вину на вас?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÐ°Ð¼Ð°Ð³Ð°Ð²ÑÑ(-Ð»Ð°ÑÑ) ÑÐ·Ð¾Ð»ÑÐ²Ð°ÑÐ¸ Ð²Ð°Ñ ÑÑÐ¸Ð¼Ð°ÑÑÐ¸ Ð¿Ð¾Ð´Ð°Ð»Ñ Ð²ÑÐ´ ÑÑÐ¼'Ñ ÑÐ¸ Ð´ÑÑÐ·ÑÐ²?",
+        "text": "Намагався(-лася) ізолювати вас тримаючи подалі від сім'ї чи друзів?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       },
       {
         "order": 7,
-        "text": "ÐÐµÑÐµÑÐ»ÑÐ´ÑÐ²Ð°Ð²(-Ð»Ð°) ÑÐ¸ ÑÑÐ¿Ð»ÑÐ²ÑÑ(-Ð»Ð°ÑÑ) Ð´Ð¾ Ð²Ð°Ñ Ð°Ð±Ð¾ ÐºÐ¾Ð³Ð¾ÑÑ ÑÐ½ÑÐ¾Ð³Ð¾ Ð½Ð° ÑÐ¾Ð±Ð¾ÑÑ ÑÐ¸ Ð´ÐµÑÐ½Ð´Ðµ?",
+        "text": "Переслідував(-ла) чи чіплявся(-лася) до вас або когось іншого на роботі чи деінде?",
         "dimension": "gottman-control-questionnaire",
         "isReverse": false
       }
@@ -29316,7 +29316,7 @@
     "version": 2,
     "language": "ua",
     "title": "Locke-Wallace Relationship Adjustment Test",
-    "description": "Ð¢ÐµÑÑ Ð¿ÑÐ¸ÑÑÐ¾ÑÑÐ²Ð°Ð½Ð½Ñ Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ. ÐÑÑÐ½ÑÑ Ð·Ð°Ð³Ð°Ð»ÑÐ½Ðµ Ð·Ð°Ð´Ð¾Ð²Ð¾Ð»ÐµÐ½Ð½Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ð¼Ð¸, ÑÑÑÐ¿ÑÐ½Ñ Ð·Ð³Ð¾Ð´Ð¸ Ð² ÑÑÐ·Ð½Ð¸Ñ ÑÑÐµÑÐ°Ñ ÑÐ° ÑÐºÑÑÑÑ ÑÑÐ¾ÑÑÐ½ÐºÑÐ². ÐÐ¸ÐºÐ¾ÑÐ¸ÑÑÐ¾Ð²ÑÑÑÑÑÑ ÑÐº Ð¿Ð¾ÑÐ°ÑÐºÐ¾Ð²Ð° Ð¾ÑÑÐ½ÐºÐ° Ð² Ð¿Ð°ÑÐ½ÑÐ¹ ÑÐµÑÐ°Ð¿ÑÑ.",
+    "description": "Тест пристосування у стосунках. Оцінює загальне задоволення стосунками, ступінь згоди в різних сферах та якість стосунків. Використовується як початкова оцінка в парній терапії.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -29681,97 +29681,97 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ¾Ð·Ð½Ð°ÑÑÐµ ÑÐ¾ÑÐºÑ Ð½Ð° ÑÐºÐ°Ð»Ñ, ÑÐºÐ° Ð½Ð°Ð¹ÐºÑÐ°ÑÐµ Ð¾Ð¿Ð¸ÑÑÑ ÑÑÑÐ¿ÑÐ½Ñ ÑÐ°ÑÑÑ Ñ Ð²Ð°ÑÐ¸Ñ ÑÐµÐ¿ÐµÑÑÑÐ½ÑÑ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ, Ð²ÑÐ°ÑÐ¾Ð²ÑÑÑÐ¸ Ð²ÑÐµ.",
+        "text": "Позначте точку на шкалі, яка найкраще описує ступінь щастя у ваших теперішніх стосунках, враховуючи все.",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð£Ð¿ÑÐ°Ð²Ð»ÑÐ½Ð½Ñ ÑÑÐ¼ÐµÐ¹Ð½Ð¸Ð¼Ð¸ ÑÑÐ½Ð°Ð½ÑÐ°Ð¼Ð¸",
+        "text": "Управління сімейними фінансами",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ¸ÑÐ°Ð½Ð½Ñ Ð²ÑÐ´Ð¿Ð¾ÑÐ¸Ð½ÐºÑ",
+        "text": "Питання відпочинку",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÑÐ¾ÑÐ²Ð¸ Ð½ÑÐ¶Ð½Ð¾ÑÑÑ",
+        "text": "Прояви ніжності",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÑÑÐ·Ñ",
+        "text": "Друзі",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "Ð¡ÐµÐºÑÑÐ°Ð»ÑÐ½Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ¸",
+        "text": "Сексуальні стосунки",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 7,
-        "text": "Ð£Ð¼Ð¾Ð²Ð½Ð¾ÑÑÑ (Ð¿ÑÐ°Ð²Ð¸Ð»ÑÐ½Ð°, Ð´Ð¾Ð±ÑÐ° ÑÐ¸ Ð½Ð°Ð»ÐµÐ¶Ð½Ð° Ð¿Ð¾Ð²ÐµÐ´ÑÐ½ÐºÐ°)",
+        "text": "Умовності (правильна, добра чи належна поведінка)",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 8,
-        "text": "Ð¤ÑÐ»Ð¾ÑÐ¾ÑÑÑ Ð¶Ð¸ÑÑÑ",
+        "text": "Філософія життя",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 9,
-        "text": "Ð¡ÑÐ¾ÑÑÐ½ÐºÐ¸ Ð· ÑÐ¾Ð´Ð¸ÑÐ°Ð¼Ð¸ Ð¿Ð°ÑÑÐ½ÐµÑÐ°",
+        "text": "Стосунки з родичами партнера",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 10,
-        "text": "ÐÐ¾Ð»Ð¸ Ð²Ð¸Ð½Ð¸ÐºÐ°ÑÑÑ ÑÐ¾Ð·Ð±ÑÐ¶Ð½Ð¾ÑÑÑ, Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ Ð·Ð°ÐºÑÐ½ÑÑÑÑÑÑÑ: (Ð°) Ñ Ð¿Ð¾ÑÑÑÐ¿Ð°ÑÑÑ (Ð±) Ð¼ÑÐ¹ Ð¿Ð°ÑÑÐ½ÐµÑ Ð¿Ð¾ÑÑÑÐ¿Ð°ÑÑÑÑÑ (Ð²) Ð·Ð³Ð¾Ð´Ð° ÑÐ»ÑÑÐ¾Ð¼ Ð²Ð·Ð°ÑÐ¼Ð½Ð¸Ñ Ð¿Ð¾ÑÑÑÐ¿Ð¾Ðº",
+        "text": "Коли виникають розбіжності, зазвичай закінчується: (а) я поступаюся (б) мій партнер поступається (в) згода шляхом взаємних поступок",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 11,
-        "text": "Ð§Ð¸ Ð·Ð°Ð¹Ð¼Ð°ÑÑÐµÑÑ Ð²Ð¸ Ð· Ð¿Ð°ÑÑÐ½ÐµÑÐ¾Ð¼ ÑÐ¿ÑÐ»ÑÐ½Ð¸Ð¼Ð¸ Ð·Ð°ÑÐ¾Ð¿Ð»ÐµÐ½Ð½ÑÐ¼Ð¸? (Ð°) ÑÑÑÐ¼Ð° (Ð±) Ð´ÐµÑÐºÐ¸Ð¼Ð¸ (Ð²) Ð´ÑÐ¶Ðµ Ð¼Ð°Ð»Ð¾ ÑÐºÐ¸Ð¼Ð¸ (Ð³) Ð¶Ð¾Ð´Ð½Ð¸Ð¼Ð¸",
+        "text": "Чи займаєтеся ви з партнером спільними захопленнями? (а) усіма (б) деякими (в) дуже мало якими (г) жодними",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 12,
-        "text": "Ð£ Ð²ÑÐ»ÑÐ½Ð¸Ð¹ ÑÐ°Ñ Ð²Ð¸ Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ Ð½Ð°Ð´Ð°ÑÑÐµ Ð¿ÐµÑÐµÐ²Ð°Ð³Ñ: (Ð°) Ð±ÑÑÐ¸ Ð² ÑÑÑÑ (Ð±) Ð·Ð°Ð»Ð¸ÑÐ°ÑÐ¸ÑÑ Ð²Ð´Ð¾Ð¼Ð°",
+        "text": "У вільний час ви зазвичай надаєте перевагу: (а) бути в русі (б) залишатися вдома",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 13,
-        "text": "ÐÐ°Ñ Ð¿Ð°ÑÑÐ½ÐµÑ Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ Ð½Ð°Ð´Ð°Ñ Ð¿ÐµÑÐµÐ²Ð°Ð³Ñ: (Ð°) Ð±ÑÑÐ¸ Ð² ÑÑÑÑ (Ð±) Ð·Ð°Ð»Ð¸ÑÐ°ÑÐ¸ÑÑ Ð²Ð´Ð¾Ð¼Ð°",
+        "text": "Ваш партнер зазвичай надає перевагу: (а) бути в русі (б) залишатися вдома",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 14,
-        "text": "Ð§Ð¸ Ð±Ð°Ð¶Ð°Ð»Ð¸ Ð²Ð¸ ÐºÐ¾Ð»Ð¸-Ð½ÐµÐ±ÑÐ´Ñ, ÑÐ¾Ð± Ð½Ðµ Ð²ÑÑÑÐ¿Ð°Ð»Ð¸ Ð² ÑÑ ÑÑÐ¾ÑÑÐ½ÐºÐ¸? (Ð°) ÑÐ°ÑÑÐ¾ (Ð±) ÑÐ½Ð¾Ð´Ñ (Ð²) ÑÑÐ´ÐºÐ¾ (Ð³) Ð½ÑÐºÐ¾Ð»Ð¸",
+        "text": "Чи бажали ви коли-небудь, щоб не вступали в ці стосунки? (а) часто (б) іноді (в) рідко (г) ніколи",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 15,
-        "text": "Ð¯ÐºÐ±Ð¸ Ð²Ð¸ Ð¼Ð¾Ð³Ð»Ð¸ Ð¿ÑÐ¾Ð¶Ð¸ÑÐ¸ Ð¶Ð¸ÑÑÑ Ð·Ð½Ð¾Ð²Ñ, ÑÐº Ð²Ð¸ Ð´ÑÐ¼Ð°ÑÑÐµ: (Ð°) Ð¾Ð±ÑÐ°Ð»Ð¸ Ð± ÑÑ ÑÐ°Ð¼Ñ Ð»ÑÐ´Ð¸Ð½Ñ (Ð±) Ð¾Ð±ÑÐ°Ð»Ð¸ Ð± ÑÐ½ÑÑ Ð»ÑÐ´Ð¸Ð½Ñ (Ð²) Ð²Ð·Ð°Ð³Ð°Ð»Ñ Ð½Ðµ Ð²ÑÑÑÐ¿Ð°Ð»Ð¸ Ð± Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ¸",
+        "text": "Якби ви могли прожити життя знову, як ви думаєте: (а) обрали б ту саму людину (б) обрали б іншу людину (в) взагалі не вступали б у стосунки",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       },
       {
         "order": 16,
-        "text": "Ð§Ð¸ Ð´Ð¾Ð²ÑÑÑÑÑÐµ Ð²Ð¸ Ð¿Ð°ÑÑÐ½ÐµÑÑ ÑÐ²Ð¾Ñ ÑÐ°ÑÐ¼Ð½Ð¸ÑÑ? (Ð°) Ð¼Ð°Ð¹Ð¶Ðµ Ð½ÑÐºÐ¾Ð»Ð¸ (Ð±) ÑÑÐ´ÐºÐ¾ (Ð²) Ñ Ð±ÑÐ»ÑÑÐ¾ÑÑÑ ÑÐµÑÐµÐ¹ (Ð³) Ñ Ð²ÑÑÐ¾Ð¼Ñ",
+        "text": "Чи довіряєте ви партнеру свої таємниці? (а) майже ніколи (б) рідко (в) у більшості речей (г) у всьому",
         "dimension": "gottman-locke-wallace-relationship-adjustment-test",
         "isReverse": false
       }
@@ -39870,7 +39870,7 @@
     "version": 2,
     "language": "ua",
     "title": "Sound Relationship House - Quality of Sex Romance and Passion",
-    "description": "Ð¯ÐºÑÑÑÑ ÑÐµÐºÑÑ, ÑÐ¾Ð¼Ð°Ð½ÑÐ¸ÐºÐ¸ ÑÐ° Ð¿ÑÐ¸ÑÑÑÐ°ÑÑÑ. ÐÑÑÐ½ÑÑ ÑÑÐ·Ð¸ÑÐ½Ñ ÑÐ° ÐµÐ¼Ð¾ÑÑÐ¹Ð½Ñ ÑÐ½ÑÐ¸Ð¼Ð½ÑÑÑÑ Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ.",
+    "description": "Якість сексу, романтики та пристрасті. Оцінює фізичну та емоційну інтимність у стосунках.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -40259,85 +40259,85 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÐ°ÑÑ ÑÑÐ¾ÑÑÐ½ÐºÐ¸: Ð Ð¾Ð¼Ð°Ð½ÑÐ¸ÑÐ½Ñ ÑÐ° Ð¿ÑÐ¸ÑÑÑÐ°ÑÐ½Ñ / Ð¡ÑÐ°ÑÑÑ Ð±ÐµÐ·Ð¿ÑÐ¸ÑÑÑÐ°ÑÐ½Ð¸Ð¼Ð¸, Ð²Ð¾Ð³Ð¾Ð½Ñ Ð·Ð³Ð°ÑÐ°Ñ",
+        "text": "Наші стосунки: Романтичні та пристрасні / Стають безпристрасними, вогонь згасає",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÑÐ¹ Ð¿Ð°ÑÑÐ½ÐµÑ Ð²ÑÐµ ÑÐµ ÑÐ»Ð¾Ð²ÐµÑÐ½Ð¾ Ð½ÑÐ¶Ð½Ð¸Ð¹(-Ð°) / ÐÑÐ¹ Ð¿Ð°ÑÑÐ½ÐµÑ Ð½Ðµ Ð´ÑÐ¶Ðµ ÑÐ»Ð¾Ð²ÐµÑÐ½Ð¾ Ð½ÑÐ¶Ð½Ð¸Ð¹(-Ð°)",
+        "text": "Мій партнер все ще словесно ніжний(-а) / Мій партнер не дуже словесно ніжний(-а)",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð²Ð¸ÑÐ°Ð¶Ð°Ñ Ð¼ÐµÐ½Ñ Ð»ÑÐ±Ð¾Ð² Ñ Ð·Ð°ÑÐ¾Ð¿Ð»ÐµÐ½Ð½Ñ / ÐÐ°ÑÑÐ½ÐµÑ Ð²Ð¸ÑÐ°Ð¶Ð°Ñ Ð»ÑÐ±Ð¾Ð² ÑÐ¸ Ð·Ð°ÑÐ¾Ð¿Ð»ÐµÐ½Ð½Ñ ÑÑÐ´ÑÐµ Ð¾ÑÑÐ°Ð½Ð½ÑÐ¼ ÑÐ°ÑÐ¾Ð¼",
+        "text": "Партнер виражає мені любов і захоплення / Партнер виражає любов чи захоплення рідше останнім часом",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ¸ Ð´Ð¾ÑÐ¸ÑÑ ÑÐ°ÑÑÐ¾ ÑÐ¾ÑÐºÐ°ÑÐ¼Ð¾ÑÑ Ð¾Ð´Ð½Ðµ Ð¾Ð´Ð½Ð¾Ð³Ð¾ / ÐÑÑÐ°Ð½Ð½ÑÐ¼ ÑÐ°ÑÐ¾Ð¼ Ð¼Ð¸ ÑÑÐ´ÐºÐ¾ ÑÐ¾ÑÐºÐ°ÑÐ¼Ð¾ÑÑ Ð¾Ð´Ð½Ðµ Ð¾Ð´Ð½Ð¾Ð³Ð¾",
+        "text": "Ми досить часто торкаємося одне одного / Останнім часом ми рідко торкаємося одне одного",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð·Ð°Ð»Ð¸ÑÑÑÑÑÑÑ Ð´Ð¾ Ð¼ÐµÐ½Ðµ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ð¾ / ÐÐ°ÑÑÐ½ÐµÑ Ð½Ðµ Ð·Ð°Ð»Ð¸ÑÑÑÑÑÑÑ Ð´Ð¾ Ð¼ÐµÐ½Ðµ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ð¾",
+        "text": "Партнер залицяється до мене сексуально / Партнер не залицяється до мене сексуально",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÐ¸ Ð¾Ð±ÑÐ¹Ð¼Ð°ÑÐ¼Ð¾ÑÑ Ð¾Ð´Ð½Ðµ Ð· Ð¾Ð´Ð½Ð¸Ð¼ / ÐÐ¸ ÑÑÐ´ÐºÐ¾ Ð¾Ð±ÑÐ¹Ð¼Ð°ÑÐ¼Ð¾ÑÑ Ð¾Ð´Ð½Ðµ Ð· Ð¾Ð´Ð½Ð¸Ð¼",
+        "text": "Ми обіймаємося одне з одним / Ми рідко обіймаємося одне з одним",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 7,
-        "text": "ÐÐ¸ Ð²ÑÐµ ÑÐµ Ð¼Ð°ÑÐ¼Ð¾ Ð½ÑÐ¶Ð½Ñ ÑÐ° Ð¿ÑÐ¸ÑÑÑÐ°ÑÐ½Ñ Ð¼Ð¾Ð¼ÐµÐ½ÑÐ¸ / ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¼Ð°Ð»Ð¾ Ð½ÑÐ¶Ð½Ð¸Ñ ÑÐ¸ Ð¿ÑÐ¸ÑÑÑÐ°ÑÐ½Ð¸Ñ Ð¼Ð¾Ð¼ÐµÐ½ÑÑÐ²",
+        "text": "Ми все ще маємо ніжні та пристрасні моменти / Ми маємо мало ніжних чи пристрасних моментів",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 8,
-        "text": "ÐÐ°ÑÐµ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ðµ Ð¶Ð¸ÑÑÑ Ð² Ð¿Ð¾ÑÑÐ´ÐºÑ / Ð£ ÑÑÐ¹ ÑÑÐµÑÑ Ñ Ð¿ÐµÐ²Ð½Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸",
+        "text": "Наше сексуальне життя в порядку / У цій сфері є певні проблеми",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 9,
-        "text": "Ð§Ð°ÑÑÐ¾ÑÐ° ÑÐµÐºÑÑ Ð½Ðµ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ / Ð§Ð°ÑÑÐ¾ÑÐ° ÑÐµÐºÑÑ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ",
+        "text": "Частота сексу не є проблемою / Частота сексу є проблемою",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 10,
-        "text": "ÐÐ°Ð´Ð¾Ð²Ð¾Ð»ÐµÐ½Ð½Ñ ÑÐºÐµ Ñ Ð¾ÑÑÐ¸Ð¼ÑÑ Ð²ÑÐ´ ÑÐµÐºÑÑ Ð½Ðµ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ / ÐÐ°Ð´Ð¾Ð²Ð¾Ð»ÐµÐ½Ð½Ñ ÑÐºÐµ Ñ Ð¾ÑÑÐ¸Ð¼ÑÑ Ð²ÑÐ´ ÑÐµÐºÑÑ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ",
+        "text": "Задоволення яке я отримую від сексу не є проблемою / Задоволення яке я отримую від сексу є проблемою",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 11,
-        "text": "ÐÐ¾Ð¶Ð»Ð¸Ð²ÑÑÑÑ Ð¿ÑÐ¾ÑÑÐ¾ Ð³Ð¾Ð²Ð¾ÑÐ¸ÑÐ¸ Ð¿ÑÐ¾ ÑÐµÐºÑ ÑÐ¸ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸ Ð½Ðµ Ñ ÑÐµÑÐ¹Ð¾Ð·Ð½Ð¾Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ Ð¼ÑÐ¶ Ð½Ð°Ð¼Ð¸ / ÐÐ¾Ð¶Ð»Ð¸Ð²ÑÑÑÑ Ð³Ð¾Ð²Ð¾ÑÐ¸ÑÐ¸ Ð¿ÑÐ¾ ÑÐµÐºÑ ÑÐ¸ ÑÐµÐºÑÑÐ°Ð»ÑÐ½Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¸ Ñ ÑÐµÑÐ¹Ð¾Ð·Ð½Ð¾Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ Ð¼ÑÐ¶ Ð½Ð°Ð¼Ð¸",
+        "text": "Можливість просто говорити про секс чи сексуальні проблеми не є серйозною проблемою між нами / Можливість говорити про секс чи сексуальні проблеми є серйозною проблемою між нами",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 12,
-        "text": "ÐÐ¸ Ð¾Ð±Ð¾Ñ Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ ÑÐ¾ÑÐµÐ¼Ð¾ Ð¾Ð´Ð½Ð¾Ð³Ð¾ Ð¹ ÑÐ¾Ð³Ð¾ Ð¶ Ñ ÑÐµÐºÑÑ / ÐÐ¸ Ð¾Ð±Ð¾Ñ ÑÐ¾ÑÐµÐ¼Ð¾ ÑÑÐ·Ð½Ð¸Ñ ÑÐµÑÐµÐ¹ Ñ ÑÐµÐºÑÑ",
+        "text": "Ми обоє зазвичай хочемо одного й того ж у сексі / Ми обоє хочемо різних речей у сексі",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 13,
-        "text": "ÐÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ Ð² Ð±Ð°Ð¶Ð°Ð½Ð½Ñ Ð½Ðµ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ Ð² ÑÐ¸Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ / ÐÑÐ´Ð¼ÑÐ½Ð½Ð¾ÑÑÑ Ð² Ð±Ð°Ð¶Ð°Ð½Ð½Ñ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ Ð² ÑÐ¸Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ",
+        "text": "Відмінності в бажанні не є проблемою в цих стосунках / Відмінності в бажанні є проблемою в цих стосунках",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       },
       {
         "order": 14,
-        "text": "ÐÑÐ»ÑÐºÑÑÑÑ Ð»ÑÐ±Ð¾Ð²Ñ Ð² Ð½Ð°ÑÐ¾Ð¼Ñ ÐºÐ¾ÑÐ°Ð½Ð½Ñ Ð½Ðµ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ / ÐÑÐ»ÑÐºÑÑÑÑ Ð»ÑÐ±Ð¾Ð²Ñ Ð² Ð½Ð°ÑÐ¾Ð¼Ñ ÐºÐ¾ÑÐ°Ð½Ð½Ñ Ñ Ð¿ÑÐ¾Ð±Ð»ÐµÐ¼Ð¾Ñ",
+        "text": "Кількість любові в нашому коханні не є проблемою / Кількість любові в нашому коханні є проблемою",
         "dimension": "gottman-sound-relationship-house-quality-of-sex-romance-and-passion",
         "isReverse": false
       }
@@ -42697,7 +42697,7 @@
       },
       {
         "order": 15,
-        "text": "MÅ«sÅ³ viltys ir siekiai â kaip individÅ³ ir kartu, dÄl mÅ«sÅ³ vaikÅ³, gyvenimo apskritai ir senatvÄs â yra gana suderinami.",
+        "text": "Mūsų viltys ir siekiai — kaip individų ir kartu, dėl mūsų vaikų, gyvenimo apskritai ir senatvės — yra gana suderinami.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
@@ -42738,7 +42738,7 @@
     "version": 2,
     "language": "ua",
     "title": "Sound Relationship House - Shared Meanings",
-    "description": "Ð¡Ð¿ÑÐ»ÑÐ½Ñ ÑÐ¼Ð¸ÑÐ»Ð¸. ÐÑÑÐ½ÑÑ ÑÑÐ²Ð¾ÑÐµÐ½Ð½Ñ ÑÐ¿ÑÐ»ÑÐ½Ð¸Ñ ÑÐ¸ÑÑÐ°Ð»ÑÐ², ÑÐ¾Ð»ÐµÐ¹, ÑÑÐ»ÐµÐ¹ ÑÐ° ÑÐ¸Ð¼Ð²Ð¾Ð»ÑÐ² Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ñ.",
+    "description": "Спільні смисли. Оцінює створення спільних ритуалів, ролей, цілей та символів у стосунках.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -42963,121 +42963,121 @@
     "questions": [
       {
         "order": 1,
-        "text": "ÐÑÑÑÑÑÑÑ Ð½Ð°Ð¿ÑÐ¸ÐºÑÐ½ÑÑ ÐºÐ¾Ð¶Ð½Ð¾Ð³Ð¾ Ð´Ð½Ñ Ð²Ð´Ð¾Ð¼Ð° Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ Ñ Ð¾ÑÐ¾Ð±Ð»Ð¸Ð²Ð¸Ð¼Ð¸ Ð¼Ð¾Ð¼ÐµÐ½ÑÐ°Ð¼Ð¸ Ð¼Ð¾Ð³Ð¾ Ð´Ð½Ñ.",
+        "text": "Зустрічі наприкінці кожного дня вдома зазвичай є особливими моментами мого дня.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "ÐÐ° Ð²Ð¸ÑÑÐ´Ð½Ð¸Ñ Ð¼Ð¸ ÑÐ¾Ð±Ð¸Ð¼Ð¾ Ð±Ð°Ð³Ð°ÑÐ¾ ÑÐ¿ÑÐ»ÑÐ½Ð¸Ñ ÑÐµÑÐµÐ¹ ÑÐºÐ¸Ð¼Ð¸ Ð½Ð°ÑÐ¾Ð»Ð¾Ð´Ð¶ÑÑÐ¼Ð¾ÑÑ ÑÐ° ÑÑÐ½ÑÑÐ¼Ð¾.",
+        "text": "На вихідних ми робимо багато спільних речей якими насолоджуємося та цінуємо.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "Ð¯ ÑÐ¿ÑÐ°Ð²Ð´Ñ Ð· Ð½ÐµÑÐµÑÐ¿ÑÐ½Ð½ÑÐ¼ ÑÐµÐºÐ°Ñ ÑÐ° Ð½Ð°ÑÐ¾Ð»Ð¾Ð´Ð¶ÑÑÑÑ Ð½Ð°ÑÐ¸Ð¼Ð¸ Ð²ÑÐ´Ð¿ÑÑÑÐºÐ°Ð¼Ð¸ ÑÐ° Ð¿Ð¾Ð´Ð¾ÑÐ¾Ð¶Ð°Ð¼Ð¸ ÑÐ°Ð·Ð¾Ð¼.",
+        "text": "Я справді з нетерпінням чекаю та насолоджуюся нашими відпустками та подорожами разом.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "ÐÐ¾Ð»Ð¸ Ð¼Ð¸ ÑÐ°Ð·Ð¾Ð¼ ÑÐ¾Ð±Ð¸Ð¼Ð¾ ÑÐ¿ÑÐ°Ð²Ð¸, Ð·Ð°Ð·Ð²Ð¸ÑÐ°Ð¹ Ð´Ð¾Ð±ÑÐµ Ð¿ÑÐ¾Ð²Ð¾Ð´Ð¸Ð¼Ð¾ ÑÐ°Ñ.",
+        "text": "Коли ми разом робимо справи, зазвичай добре проводимо час.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ ÑÐ¿Ð¾ÑÐ¾Ð±Ð¸ Ð¾Ð½Ð¾Ð²Ð¸ÑÐ¸ÑÑ ÑÐ° Ð²ÑÐ´Ð¿Ð¾ÑÐ¸ÑÐ¸ ÐºÐ¾Ð»Ð¸ Ð¼Ð¸ Ð²Ð¸ÑÐ½Ð°Ð¶ÐµÐ½Ñ ÑÐ¸ ÑÑÐ¾Ð¼Ð»ÐµÐ½Ñ.",
+        "text": "Ми маємо способи оновитися та відпочити коли ми виснажені чи стомлені.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "ÐÐ¸ Ð¿Ð¾Ð´ÑÐ»ÑÑÐ¼Ð¾ Ð±Ð°Ð³Ð°ÑÐ¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ð¸Ñ ÑÑÐ½Ð½Ð¾ÑÑÐµÐ¹ Ñ Ð½Ð°ÑÐ¸Ñ ÑÐ¾Ð»ÑÑ ÐºÐ¾ÑÐ°Ð½ÑÑÐ² ÑÐ° Ð¿Ð°ÑÑÐ½ÐµÑÑÐ².",
+        "text": "Ми поділяємо багато подібних цінностей у наших ролях коханців та партнерів.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 7,
-        "text": "ÐÐ¸ Ð· Ð¿Ð°ÑÑÐ½ÐµÑÐ¾Ð¼ Ð¼Ð°ÑÐ¼Ð¾ ÑÑÐ¼ÑÑÐ½Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° ÑÐ¾Ð»Ñ ÑÐ¾Ð±Ð¾ÑÐ¸ Ð² Ð¶Ð¸ÑÑÑ.",
+        "text": "Ми з партнером маємо сумісні погляди на роль роботи в житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 8,
-        "text": "ÐÐ¸ Ð· Ð¿Ð°ÑÑÐ½ÐµÑÐ¾Ð¼ Ð¼Ð°ÑÐ¼Ð¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ ÑÑÐ»Ð¾ÑÐ¾ÑÑÑ ÑÐ¾Ð´Ð¾ Ð±Ð°Ð»Ð°Ð½ÑÑ ÑÐ¾Ð±Ð¾ÑÐ¸ ÑÐ° ÑÑÐ¼ÐµÐ¹Ð½Ð¾Ð³Ð¾ Ð¶Ð¸ÑÑÑ.",
+        "text": "Ми з партнером маємо подібні філософії щодо балансу роботи та сімейного життя.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 9,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð¿ÑÐ´ÑÑÐ¸Ð¼ÑÑ ÑÐµ ÑÐ¾ Ñ Ð²Ð²Ð°Ð¶Ð°Ñ ÑÐ²Ð¾ÑÑ Ð¾ÑÐ½Ð¾Ð²Ð½Ð¾Ñ Ð¼ÑÑÑÑÑ Ð² Ð¶Ð¸ÑÑÑ.",
+        "text": "Партнер підтримує те що я вважаю своєю основною місією в житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 10,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð¿Ð¾Ð´ÑÐ»ÑÑ Ð¼Ð¾Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° Ð²Ð°Ð¶Ð»Ð¸Ð²ÑÑÑÑ ÑÑÐ¼'Ñ ÑÐ° ÑÐ¾Ð´Ð¸ÑÑÐ² Ñ Ð½Ð°ÑÐ¾Ð¼Ñ ÑÐ¿ÑÐ»ÑÐ½Ð¾Ð¼Ñ Ð¶Ð¸ÑÑÑ.",
+        "text": "Партнер поділяє мої погляди на важливість сім'ї та родичів у нашому спільному житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 11,
-        "text": "Ð¯ÐºÑÐ¾ Ð± Ñ Ð¾Ð³Ð»ÑÐ½ÑÐ²ÑÑ(-Ð»Ð°ÑÑ) Ð½Ð° ÑÐ²Ð¾Ñ Ð¶Ð¸ÑÑÑ Ñ Ð³Ð»Ð¸Ð±Ð¾ÐºÑÐ¹ ÑÑÐ°ÑÐ¾ÑÑÑ, Ñ Ð´ÑÐ¼Ð°Ñ Ð¿Ð¾Ð±Ð°ÑÐ¸Ð²(-Ð»Ð°) Ð±Ð¸ ÑÐ¾ Ð½Ð°ÑÑ Ð¶Ð¸ÑÑÑÐ²Ñ ÑÐ»ÑÑÐ¸ ÑÑÐ´Ð¾Ð²Ð¾ Ð¿ÐµÑÐµÐ¿Ð»ÐµÐ»Ð¸ÑÑ.",
+        "text": "Якщо б я оглянувся(-лася) на своє життя у глибокій старості, я думаю побачив(-ла) би що наші життєві шляхи чудово переплелися.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 12,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ ÑÑÐ½ÑÑ Ð¼Ð¾Ñ Ð´Ð¾ÑÑÐ³Ð½ÐµÐ½Ð½Ñ.",
+        "text": "Партнер цінує мої досягнення.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 13,
-        "text": "ÐÐ°ÑÑÐ½ÐµÑ Ð¿Ð¾Ð²Ð°Ð¶Ð°Ñ Ð¼Ð¾Ñ Ð¾ÑÐ¾Ð±Ð¸ÑÑÑ ÑÑÐ»Ñ, Ð½Ðµ Ð¿Ð¾Ð²'ÑÐ·Ð°Ð½Ñ Ð·Ñ ÑÑÐ¾ÑÑÐ½ÐºÐ°Ð¼Ð¸.",
+        "text": "Партнер поважає мої особисті цілі, не пов'язані зі стосунками.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 14,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð´ÑÐ¶Ðµ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ ÑÑÐ½Ð°Ð½ÑÐ¾Ð²Ñ ÑÑÐ»Ñ.",
+        "text": "Ми маємо дуже подібні фінансові цілі.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 15,
-        "text": "ÐÐ°ÑÑ Ð½Ð°Ð´ÑÑ ÑÐ° Ð¿ÑÐ°Ð³Ð½ÐµÐ½Ð½Ñ â ÑÐº ÑÐ½Ð´Ð¸Ð²ÑÐ´ÑÐ°Ð»ÑÐ½Ñ ÑÐ°Ðº Ñ ÑÐ¿ÑÐ»ÑÐ½Ñ, Ð´Ð»Ñ Ð½Ð°ÑÐ¸Ñ Ð´ÑÑÐµÐ¹, Ð´Ð»Ñ Ð½Ð°ÑÐ¾Ð³Ð¾ Ð¶Ð¸ÑÑÑ Ð·Ð°Ð³Ð°Ð»Ð¾Ð¼ ÑÐ° Ð´Ð»Ñ Ð½Ð°ÑÐ¾Ñ ÑÑÐ°ÑÐ¾ÑÑÑ â Ð´Ð¾ÑÐ¸ÑÑ ÑÑÐ¼ÑÑÐ½Ñ.",
+        "text": "Наші надії та прагнення — як індивідуальні так і спільні, для наших дітей, для нашого життя загалом та для нашої старості — досить сумісні.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 16,
-        "text": "ÐÐ¸ Ð¾Ð´Ð½Ð°ÐºÐ¾Ð²Ð¾ ÑÐ¾Ð·ÑÐ¼ÑÑÐ¼Ð¾ ÑÐ¾ Ð¾Ð·Ð½Ð°ÑÐ°Ñ \"Ð´ÑÐ¼\".",
+        "text": "Ми однаково розуміємо що означає \"дім\".",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 17,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° ÑÐ¾Ð»Ñ ÑÐµÐºÑÑ Ð² Ð½Ð°ÑÐ¾Ð¼Ñ Ð¶Ð¸ÑÑÑ.",
+        "text": "Ми маємо подібні погляди на роль сексу в нашому житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 18,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ Ð¿Ð¾Ð³Ð»ÑÐ´Ð¸ Ð½Ð° ÑÐ¾Ð»Ñ Ð»ÑÐ±Ð¾Ð²Ñ ÑÐ° Ð½ÑÐ¶Ð½Ð¾ÑÑÑ Ð² Ð½Ð°ÑÐ¾Ð¼Ñ Ð¶Ð¸ÑÑÑ.",
+        "text": "Ми маємо подібні погляди на роль любові та ніжності в нашому житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 19,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ ÑÑÐ½Ð½Ð¾ÑÑÑ ÑÐ¾Ð´Ð¾ Ð²Ð°Ð¶Ð»Ð¸Ð²Ð¾ÑÑÑ ÑÐ° Ð·Ð½Ð°ÑÐµÐ½Ð½Ñ Ð³ÑÐ¾ÑÐµÐ¹ Ñ Ð½Ð°ÑÐ¾Ð¼Ñ Ð¶Ð¸ÑÑÑ.",
+        "text": "Ми маємо подібні цінності щодо важливості та значення грошей у нашому житті.",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       },
       {
         "order": 20,
-        "text": "ÐÐ¸ Ð¼Ð°ÑÐ¼Ð¾ Ð¿Ð¾Ð´ÑÐ±Ð½Ñ ÑÑÐ½Ð½Ð¾ÑÑÑ ÑÐ¾Ð´Ð¾ \"Ð°Ð²ÑÐ¾Ð½Ð¾Ð¼ÑÑ\" ÑÐ° \"Ð½ÐµÐ·Ð°Ð»ÐµÐ¶Ð½Ð¾ÑÑÑ\".",
+        "text": "Ми маємо подібні цінності щодо \"автономії\" та \"незалежності\".",
         "dimension": "gottman-sound-relationship-house-shared-meanings",
         "isReverse": false
       }
@@ -46346,7 +46346,7 @@
     "version": 2,
     "language": "ua",
     "title": "Suicide Potential",
-    "description": "ÐÑÑÐ½ÐºÐ° ÑÑÑÑÐ¸Ð´Ð°Ð»ÑÐ½Ð¾Ð³Ð¾ ÑÐ¸Ð·Ð¸ÐºÑ. ÐÑÑÐ½ÑÑ Ð¿Ð¾Ð¿ÐµÑÐµÐ´Ð½Ñ ÑÐ¿ÑÐ¾Ð±Ð¸, Ð¿Ð¾ÑÐ¾ÑÐ½Ñ Ð´ÑÐ¼ÐºÐ¸ ÑÐ° Ð¿Ð»Ð°Ð½Ð¸ ÑÑÑÑÐ¸Ð´Ñ.",
+    "description": "Оцінка суїцидального ризику. Оцінює попередні спроби, поточні думки та плани суїциду.",
     "scoringConfigJson": {
       "type": "gottman_generic_v1",
       "source": {
@@ -46431,37 +46431,37 @@
     "questions": [
       {
         "order": 1,
-        "text": "Ð§Ð¸ Ð½Ð°Ð¼Ð°Ð³Ð°Ð»Ð¸ÑÑ Ð²Ð¸ ÐºÐ¾Ð»Ð¸-Ð½ÐµÐ±ÑÐ´Ñ Ð²ÑÐ¸Ð½Ð¸ÑÐ¸ ÑÐ°Ð¼Ð¾Ð³ÑÐ±ÑÑÐ²Ð¾?",
+        "text": "Чи намагалися ви коли-небудь вчинити самогубство?",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       },
       {
         "order": 2,
-        "text": "Ð§Ð¸ Ð¿Ð»Ð°Ð½ÑÐ²Ð°Ð»Ð¸ Ð²Ð¸ ÐºÐ¾Ð»Ð¸-Ð½ÐµÐ±ÑÐ´Ñ ÑÐ¿ÑÐ¾Ð±Ñ ÑÐ°Ð¼Ð¾Ð³ÑÐ±ÑÑÐ²Ð°?",
+        "text": "Чи планували ви коли-небудь спробу самогубства?",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       },
       {
         "order": 3,
-        "text": "Ð§Ð¸ Ð´ÑÐ¼Ð°ÑÑÐµ Ð²Ð¸ Ð·Ð°ÑÐ°Ð· Ð¿ÑÐ¾ ÑÐ°Ð¼Ð¾Ð³ÑÐ±ÑÑÐ²Ð¾? Ð¯Ðº ÑÐ°ÑÑÐ¾? Ð©Ð¾Ð´Ð½Ñ / Ð©Ð¾ÑÐ¸Ð¶Ð½Ñ",
+        "text": "Чи думаєте ви зараз про самогубство? Як часто? Щодня / Щотижня",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       },
       {
         "order": 4,
-        "text": "\"Ð¯ ÑÐ¾ÑÑÐ²(-Ð»Ð°) Ð±Ð¸ ÑÐµÐ±Ðµ Ð²Ð±Ð¸ÑÐ¸\"",
+        "text": "\"Я хотів(-ла) би себе вбити\"",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       },
       {
         "order": 5,
-        "text": "\"Ð¯ Ð± ÑÐµÐ±Ðµ Ð²Ð±Ð¸Ð²(-Ð»Ð°) ÑÐºÑÐ¾ Ð± Ð¼Ð°Ð²(-Ð»Ð°) ÑÐ°Ð½Ñ\"",
+        "text": "\"Я б себе вбив(-ла) якщо б мав(-ла) шанс\"",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       },
       {
         "order": 6,
-        "text": "Ð§Ð¸ Ð¼Ð°ÑÑÐµ Ð²Ð¸ Ð·Ð°ÑÐ°Ð· Ð¿Ð»Ð°Ð½ ÑÐ°Ð¼Ð¾Ð³ÑÐ±ÑÑÐ²Ð°?",
+        "text": "Чи маєте ви зараз план самогубства?",
         "dimension": "gottman-suicide-potential-questionnaire",
         "isReverse": false
       }
