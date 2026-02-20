@@ -34,6 +34,7 @@ export default async function ConsultantPage() {
     const access = portal.accessLinks[0];
     return {
       portalId: portal.id,
+      latestAttemptId: attempt?.id ?? null,
       internalClientId: portal.internalClientId,
       latestStatus: attempt?.status ?? "NOT_STARTED",
       updatedAt: (attempt?.updatedAt ?? portal.createdAt).toISOString(),

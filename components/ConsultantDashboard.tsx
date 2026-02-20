@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import { TEST_CATEGORIES, getCategoryLabel, type TestCategory } from "@/lib/test-categories";
 
 type TestVersion = {
@@ -15,6 +15,7 @@ type TestVersion = {
 
 type PortalRow = {
   portalId: string;
+  latestAttemptId: string | null;
   internalClientId: string;
   latestStatus: string;
   updatedAt: string;
@@ -39,6 +40,24 @@ export function ConsultantDashboard({
   const [email, setEmail] = useState("");
   const [createdUrl, setCreatedUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const [openedAttemptId, setOpenedAttemptId] = useState<string | null>(null);
+  const [answersByAttempt, setAnswersByAttempt] = useState<
+    Record<
+      string,
+      {
+        loading: boolean;
+        error: string | null;
+        rows: Array<{
+          order: number;
+          questionLocal: string;
+          questionEn: string;
+          answerValue: number | null;
+          answerLocal: string;
+          answerEn: string;
+        }>;
+      }
+    >
+  >({});
 
   const languages = useMemo(() => [...new Set(tests.map((t) => t.language))].sort(), [tests]);
 
@@ -97,6 +116,38 @@ export function ConsultantDashboard({
     if (res.ok) {
       setCreatedUrl(data.url);
     }
+  }
+
+  async function toggleAnswers(attemptId: string | null) {
+    if (!attemptId) return;
+    if (openedAttemptId === attemptId) {
+      setOpenedAttemptId(null);
+      return;
+    }
+    setOpenedAttemptId(attemptId);
+
+    if (answersByAttempt[attemptId]?.rows?.length || answersByAttempt[attemptId]?.loading) return;
+
+    setAnswersByAttempt((prev) => ({
+      ...prev,
+      [attemptId]: { loading: true, error: null, rows: [] }
+    }));
+
+    const res = await fetch(`/api/consultant/attempts/${attemptId}/answers`);
+    const payload = await res.json();
+
+    if (!res.ok) {
+      setAnswersByAttempt((prev) => ({
+        ...prev,
+        [attemptId]: { loading: false, error: payload.error ?? "Klaida užkraunant atsakymus", rows: [] }
+      }));
+      return;
+    }
+
+    setAnswersByAttempt((prev) => ({
+      ...prev,
+      [attemptId]: { loading: false, error: null, rows: payload.rows ?? [] }
+    }));
   }
 
   return (
@@ -184,28 +235,74 @@ export function ConsultantDashboard({
           </thead>
           <tbody>
             {rows.map((row) => (
-              <tr key={row.portalId}>
-                <td>{row.internalClientId}</td>
-                <td>{row.latestStatus}</td>
-                <td>{row.answeredMinutes}</td>
-                <td>{row.reportMinutes}</td>
-                <td>{row.feedback}</td>
-                <td>{new Date(row.updatedAt).toLocaleString("lt-LT")}</td>
-                <td>
-                  {row.activeUrl ? (
-                    <div className="row">
-                      <a href={row.activeUrl}>Atidaryti</a>
-                      {row.accessLinkId ? (
-                        <button className="secondary" onClick={() => rotate(row.accessLinkId!)}>
-                          Regeneruoti
+              <Fragment key={row.portalId}>
+                <tr key={row.portalId}>
+                  <td>{row.internalClientId}</td>
+                  <td>{row.latestStatus}</td>
+                  <td>{row.answeredMinutes}</td>
+                  <td>{row.reportMinutes}</td>
+                  <td>{row.feedback}</td>
+                  <td>{new Date(row.updatedAt).toLocaleString("lt-LT")}</td>
+                  <td>
+                    {row.activeUrl ? (
+                      <div className="row">
+                        <a href={row.activeUrl}>Atidaryti</a>
+                        {row.accessLinkId ? (
+                          <button className="secondary" onClick={() => rotate(row.accessLinkId!)}>
+                            Regeneruoti
+                          </button>
+                        ) : null}
+                      </div>
+                    ) : (
+                      "-"
+                    )}
+                    {row.latestAttemptId ? (
+                      <div className="row" style={{ marginTop: 6 }}>
+                        <button className="secondary" onClick={() => toggleAnswers(row.latestAttemptId)}>
+                          {openedAttemptId === row.latestAttemptId ? "Slėpti atsakymus" : "Peržiūrėti atsakymus"}
                         </button>
+                        <a href={`/api/consultant/attempts/${row.latestAttemptId}/answers?format=csv`}>
+                          Atsisiųsti CSV
+                        </a>
+                      </div>
+                    ) : null}
+                  </td>
+                </tr>
+                {row.latestAttemptId && openedAttemptId === row.latestAttemptId ? (
+                  <tr key={`${row.portalId}-answers`}>
+                    <td colSpan={7}>
+                      {answersByAttempt[row.latestAttemptId]?.loading ? <p>Kraunama...</p> : null}
+                      {answersByAttempt[row.latestAttemptId]?.error ? (
+                        <p style={{ color: "#8c2a2a" }}>{answersByAttempt[row.latestAttemptId]?.error}</p>
                       ) : null}
-                    </div>
-                  ) : (
-                    "-"
-                  )}
-                </td>
-              </tr>
+                      {answersByAttempt[row.latestAttemptId]?.rows?.length ? (
+                        <table className="table">
+                          <thead>
+                            <tr>
+                              <th>#</th>
+                              <th>Klausimas (EN)</th>
+                              <th>Klausimas (dalyvio kalba)</th>
+                              <th>Atsakymas (EN)</th>
+                              <th>Atsakymas (dalyvio kalba)</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            {answersByAttempt[row.latestAttemptId].rows.map((answer) => (
+                              <tr key={`${row.latestAttemptId}-${answer.order}`}>
+                                <td>{answer.order}</td>
+                                <td>{answer.questionEn}</td>
+                                <td>{answer.questionLocal}</td>
+                                <td>{answer.answerEn || "-"}</td>
+                                <td>{answer.answerLocal || "-"}</td>
+                              </tr>
+                            ))}
+                          </tbody>
+                        </table>
+                      ) : null}
+                    </td>
+                  </tr>
+                ) : null}
+              </Fragment>
             ))}
           </tbody>
         </table>
