@@ -12,7 +12,21 @@ type Question = {
 
 type InitPayload = {
   portal: { internalClientId: string };
-  test: { id: string; title: string; description: string; language: string; questions: Question[] };
+  test: {
+    id: string;
+    title: string;
+    description: string;
+    language: string;
+    scoringConfig?: {
+      responseOptionsByOrder?: Record<string, Array<{ value: number; label: string }>>;
+      instructions?: {
+        user?: string;
+        consultant?: string;
+        admin?: string;
+      };
+    };
+    questions: Question[];
+  };
   latestAttempt: {
     id: string;
     status: string;
@@ -47,7 +61,7 @@ type FeedbackState = {
 
 type FeedbackKey = "clarity" | "usefulness" | "interest";
 
-function getTestLikert(language: string) {
+function getDefaultLikert(language: string) {
   const lt = [
     { value: 1, label: "Visiškai netinka man" },
     { value: 2, label: "Daugiausia netinka man" },
@@ -66,16 +80,16 @@ function getTestLikert(language: string) {
     { value: 6, label: "Describes me perfectly" }
   ];
 
-  const ru = [
-    { value: 1, label: "Абсолютно не соответствует мне" },
-    { value: 2, label: "В основном не соответствует мне" },
-    { value: 3, label: "Скорее соответствует, чем нет" },
-    { value: 4, label: "В общем, соответствует" },
-    { value: 5, label: "По большей части соответствует" },
-    { value: 6, label: "Полностью соответствует мне" }
+  const ua = [
+    { value: 1, label: "Абсолютно не про мене" },
+    { value: 2, label: "Переважно не про мене" },
+    { value: 3, label: "Скоріше так, ніж ні" },
+    { value: 4, label: "Помірно про мене" },
+    { value: 5, label: "Переважно про мене" },
+    { value: 6, label: "Повністю про мене" }
   ];
 
-  if (language === "ru") return ru;
+  if (language === "ua") return ua;
   if (language === "en") return en;
   return lt;
 }
@@ -142,7 +156,9 @@ export function PortalFlow({ token }: { token: string }) {
   const questions = data?.test.questions ?? [];
   const current = questions[index];
   const progress = questions.length ? Math.round(((index + 1) / questions.length) * 100) : 0;
-  const testLikert = getTestLikert(data?.test.language ?? "lt");
+  const fallbackLikert = getDefaultLikert(data?.test.language ?? "lt");
+  const currentOptions =
+    data?.test.scoringConfig?.responseOptionsByOrder?.[String(current?.questionOrder ?? 0)] ?? fallbackLikert;
 
   const deltaLabel = useMemo(() => {
     const curr = data?.latestAttempt?.score?.overall;
@@ -296,6 +312,9 @@ export function PortalFlow({ token }: { token: string }) {
       {phase === "consent" ? (
         <section className="card portal-panel portal-consent">
           <h2>Sutikimas</h2>
+          {data.test.scoringConfig?.instructions?.user ? (
+            <p style={{ marginBottom: 10 }}>{data.test.scoringConfig.instructions.user}</p>
+          ) : null}
           <p>
             Tęsdami patvirtinate, kad perskaitėte taisykles, sutinkate su duomenų tvarkymu ir suprantate, kad
             testas nėra medicininė diagnozė.
@@ -318,7 +337,7 @@ export function PortalFlow({ token }: { token: string }) {
 
           <p className="question-text">{current.text}</p>
           <div className="likert-stack">
-            {testLikert.map((opt) => {
+            {currentOptions.map((opt) => {
               const active = answers[current.id] === opt.value;
               return (
                 <button

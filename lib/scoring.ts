@@ -28,6 +28,16 @@ type YsqConfig = {
   schemas: YsqSchema[];
 };
 
+type GenericOption = {
+  value: number;
+  label: string;
+};
+
+type GottmanGenericConfig = {
+  type: "gottman_generic_v1";
+  responseOptionsByOrder?: Record<string, GenericOption[]>;
+};
+
 function normalizeYsq(config: unknown): YsqConfig | null {
   if (!config || typeof config !== "object") return null;
   const typed = config as Partial<YsqConfig>;
@@ -44,6 +54,16 @@ function normalizeYsq(config: unknown): YsqConfig | null {
       elevated: typed.statusLabels?.elevated ?? "Elevated",
       notElevated: typed.statusLabels?.notElevated ?? "Not Elevated"
     }
+  };
+}
+
+function normalizeGottmanGeneric(config: unknown): GottmanGenericConfig | null {
+  if (!config || typeof config !== "object") return null;
+  const typed = config as Partial<GottmanGenericConfig>;
+  if (typed.type !== "gottman_generic_v1") return null;
+  return {
+    type: "gottman_generic_v1",
+    responseOptionsByOrder: typed.responseOptionsByOrder ?? {}
   };
 }
 
@@ -102,6 +122,56 @@ function scoreYsqAttempt(questions: Question[], answers: AnswerMap, rawConfig: u
   };
 }
 
+function scoreGottmanGenericAttempt(questions: Question[], answers: AnswerMap, rawConfig: unknown) {
+  const config = normalizeGottmanGeneric(rawConfig);
+  if (!config) return null;
+
+  const perDimension: Record<string, number[]> = {};
+
+  for (const q of questions) {
+    const raw = answers[q.id];
+    if (typeof raw !== "number") continue;
+
+    const options = config.responseOptionsByOrder?.[String(q.questionOrder)] ?? [];
+    const min = options.length ? Math.min(...options.map((o) => o.value)) : 1;
+    const max = options.length ? Math.max(...options.map((o) => o.value)) : 6;
+    const normalized = max > min ? ((raw - min) / (max - min)) * 100 : 0;
+
+    perDimension[q.dimension] = perDimension[q.dimension] ?? [];
+    perDimension[q.dimension].push(normalized);
+  }
+
+  const dimensions = Object.entries(perDimension).map(([dimension, values]) => {
+    const avg = values.reduce((a, b) => a + b, 0) / values.length;
+    let level = "high";
+    if (avg < 34) level = "low";
+    else if (avg < 67) level = "medium";
+
+    return {
+      dimension,
+      avg: Number(avg.toFixed(2)),
+      level,
+      answered: values.length
+    };
+  });
+
+  const overallValues = dimensions.map((d) => d.avg);
+  const overall = overallValues.length
+    ? Number((overallValues.reduce((a, b) => a + b, 0) / overallValues.length).toFixed(2))
+    : 0;
+
+  return {
+    overall,
+    dimensions,
+    interpretation:
+      overall < 34
+        ? "Low agreement/safety signal. Consultant follow-up is recommended."
+        : overall < 67
+          ? "Moderate signal. Review highest-stress themes with consultant."
+          : "High positive signal. Keep tracking and discuss nuanced areas."
+  };
+}
+
 function scoreDefaultAttempt(questions: Question[], answers: AnswerMap) {
   const perDimension: Record<string, number[]> = {};
 
@@ -147,5 +217,7 @@ function scoreDefaultAttempt(questions: Question[], answers: AnswerMap) {
 export function scoreAttempt(questions: Question[], answers: AnswerMap, scoringConfig?: unknown) {
   const ysq = scoreYsqAttempt(questions, answers, scoringConfig);
   if (ysq) return ysq;
+  const generic = scoreGottmanGenericAttempt(questions, answers, scoringConfig);
+  if (generic) return generic;
   return scoreDefaultAttempt(questions, answers);
 }

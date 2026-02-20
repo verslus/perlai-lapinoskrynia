@@ -28,6 +28,7 @@ export async function GET(_: Request, { params }: { params: Promise<{ token: str
       title: access.testVersion.title,
       description: access.testVersion.description,
       language: access.testVersion.language,
+      scoringConfig: access.testVersion.scoringConfigJson,
       questions: access.testVersion.questions
     },
     latestAttempt: latest

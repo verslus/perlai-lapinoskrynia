@@ -57,7 +57,19 @@ export default async function ConsultantPage() {
       </div>
 
       <ConsultantDashboard
-        tests={tests.map((t) => ({ id: t.id, label: `${t.title} | ${t.language} v${t.version}` }))}
+        tests={tests.map((t) => ({
+          id: t.id,
+          label: `${t.title} | ${t.language} v${t.version}`,
+          description: t.description,
+          consultantInstruction:
+            typeof t.scoringConfigJson === "object" &&
+            t.scoringConfigJson &&
+            "instructions" in t.scoringConfigJson &&
+            typeof (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ===
+              "string"
+              ? (t.scoringConfigJson as { instructions?: { consultant?: string } }).instructions?.consultant ?? null
+              : null
+        }))}
         rows={rows}
       />
     </main>

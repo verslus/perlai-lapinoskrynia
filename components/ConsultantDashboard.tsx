@@ -5,6 +5,8 @@ import { useState } from "react";
 type TestVersion = {
   id: string;
   label: string;
+  description: string;
+  consultantInstruction: string | null;
 };
 
 type PortalRow = {
@@ -31,6 +33,7 @@ export function ConsultantDashboard({
   const [email, setEmail] = useState("");
   const [createdUrl, setCreatedUrl] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const selectedTest = tests.find((t) => t.id === testVersionId) ?? null;
 
   async function createLink(e: React.FormEvent) {
     e.preventDefault();
@@ -71,6 +74,12 @@ export function ConsultantDashboard({
     <div className="grid">
       <section className="card">
         <h2>Generuoti kliento prieigą</h2>
+        {selectedTest ? (
+          <div className="small" style={{ marginBottom: 12 }}>
+            <p>{selectedTest.description}</p>
+            {selectedTest.consultantInstruction ? <p>{selectedTest.consultantInstruction}</p> : null}
+          </div>
+        ) : null}
         <form className="grid" onSubmit={createLink}>
           <label>
             Vidinis kliento ID

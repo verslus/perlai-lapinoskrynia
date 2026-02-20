@@ -9,7 +9,7 @@ import { scoreAttempt } from "@/lib/scoring";
 
 const schema = z.object({
   attemptId: z.string(),
-  answers: z.record(z.string(), z.number().int().min(1).max(6).nullable())
+  answers: z.record(z.string(), z.number().int().min(1).max(10).nullable())
 });
 
 export async function POST(req: Request, { params }: { params: Promise<{ token: string }> }) {
